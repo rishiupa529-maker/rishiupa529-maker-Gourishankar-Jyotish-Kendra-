@@ -14,8 +14,10 @@ from pathlib import Path
 import os
 from dotenv import load_dotenv
 
-# Load environment variables from .env file
-load_dotenv()
+# Load environment variables from .env file (only if it exists)
+env_path = BASE_DIR / '.env'
+if env_path.exists():
+    load_dotenv(env_path)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -32,8 +34,22 @@ DEBUG = os.getenv('DEBUG', 'True').lower() == 'True'
 
 ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '').split(',') if os.getenv('ALLOWED_HOSTS') else []
 
+# Add Vercel domain if deployed on Vercel
+if os.getenv('VERCEL'):
+    vercel_url = os.getenv('VERCEL_URL')
+    if vercel_url and vercel_url not in ALLOWED_HOSTS:
+        ALLOWED_HOSTS.append(vercel_url)
+
 # CSRF Trusted Origins
 CSRF_TRUSTED_ORIGINS = os.getenv('CSRF_TRUSTED_ORIGINS', '').split(',') if os.getenv('CSRF_TRUSTED_ORIGINS') else []
+
+# Add Vercel URL to CSRF trusted origins if deployed on Vercel
+if os.getenv('VERCEL'):
+    vercel_url = os.getenv('VERCEL_URL')
+    if vercel_url:
+        https_url = f"https://{vercel_url}"
+        if https_url not in CSRF_TRUSTED_ORIGINS:
+            CSRF_TRUSTED_ORIGINS.append(https_url)
 
 
 # Application definition
@@ -95,10 +111,12 @@ if os.getenv('DB_ENGINE'):
             'PORT': os.getenv('DB_PORT'),
             'OPTIONS': {
                 'ssl': {'ca': ''},  # Required for Aiven MySQL
+                'connect_timeout': 10,
             },
         }
     }
 else:
+    # For Vercel serverless, use a more robust SQLite setup
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
@@ -145,13 +163,11 @@ STATICFILES_DIRS =[
     BASE_DIR/'static'
 ]
 
-STATIC_URL = 'static/'
-
-import os
+STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 MEDIA_URL='/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
-MEDIA_ROOT= os.path.join(BASE_DIR,'media')
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 
 # Email
 # https://docs.djangoproject.com/en/6.1/topics/email/#topic-email-configuration
@@ -161,4 +177,19 @@ MAILERS = {
         'BACKEND': 'django.core.mail.backends.console.EmailBackend',
     },
 }
+
+# Whitenoise for static files serving
+WHITENOISE_USE_FINDERS = True
+WHITENOISE_STATIC_PREFIX = '/static/'
+
+# Security settings for production
+if not DEBUG:
+    # Don't force SSL redirect on Vercel (handled by Vercel)
+    if not os.getenv('VERCEL'):
+        SECURE_SSL_REDIRECT = True
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+    SECURE_BROWSER_XSS_FILTER = True
+    SECURE_CONTENT_TYPE_NOSNIFF = True
+    X_FRAME_OPTIONS = 'DENY'
 
