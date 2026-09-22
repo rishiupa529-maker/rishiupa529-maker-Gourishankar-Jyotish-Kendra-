@@ -1,0 +1,452 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/contact.css' %}">
+
+<div class="gk-contact-page">
+
+    <!-- =========================================
+         CONTACT HERO
+    ========================================== -->
+
+    <section class="gk-contact-hero">
+
+        <div class="gk-contact-om">
+            ॐ
+        </div>
+
+        <span class="gk-contact-small-title">
+            GOURISHANKAR JYOTISH KENDRA
+        </span>
+
+        <h1>
+            Contact Us
+        </h1>
+
+        <p>
+            संपर्क करें और अपने प्रश्नों का मार्गदर्शन प्राप्त करें
+        </p>
+
+        <div class="gk-contact-line"></div>
+
+    </section>
+
+
+    <!-- =========================================
+         CONTACT MAIN
+    ========================================== -->
+
+    <section class="gk-contact-main">
+
+        <div class="gk-contact-wrapper">
+
+
+            <!-- =================================
+                 LEFT SIDE
+            ================================== -->
+
+            <div class="gk-contact-information">
+
+                <span class="gk-contact-label">
+                    संपर्क जानकारी
+                </span>
+
+                <h2>
+                    हमसे जुड़ें
+                </h2>
+
+                <p class="gk-contact-description">
+
+                    गौरीशंकर ज्योतिष केंद्र में वैदिक ज्योतिष,
+                    कुंडली विश्लेषण, विवाह मिलान, करियर,
+                    व्यवसाय, वास्तु एवं पूजा-अनुष्ठान से
+                    संबंधित परामर्श के लिए हमसे संपर्क करें।
+
+                </p>
+
+
+                <!-- Address -->
+
+                <div class="gk-contact-info-box">
+
+                    <div class="gk-contact-info-icon">
+                        📍
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            हमारा पता
+                        </h3>
+
+                        <p>
+                            Gourishankar Jyotish Kendra
+                            <br>
+                            Ujjain, Madhya Pradesh, India
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Phone -->
+
+                <div class="gk-contact-info-box">
+
+                    <div class="gk-contact-info-icon">
+                        📞
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            फोन नंबर
+                        </h3>
+
+                        <p>
+                            +91 XXXXX XXXXX
+                        </p>
+
+                        <a
+                            href="tel:+91XXXXXXXXXX"
+                            class="gk-contact-action"
+                        >
+                            Call Now
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- WhatsApp -->
+
+                <div class="gk-contact-info-box">
+
+                    <div class="gk-contact-info-icon">
+                        💬
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            WhatsApp
+                        </h3>
+
+                        <p>
+                            +91 XXXXX XXXXX
+                        </p>
+
+                        <a
+                            href="https://wa.me/91XXXXXXXXXX"
+                            target="_blank"
+                            class="gk-contact-action"
+                        >
+                            WhatsApp करें
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Email -->
+
+                <div class="gk-contact-info-box">
+
+                    <div class="gk-contact-info-icon">
+                        ✉
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Email
+                        </h3>
+
+                        <p>
+                            info@example.com
+                        </p>
+
+                        <a
+                            href="mailto:info@example.com"
+                            class="gk-contact-action"
+                        >
+                            Email करें
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Social Links -->
+
+                <div class="gk-contact-social">
+
+                    <h3>
+                        हमें सोशल मीडिया पर फॉलो करें
+                    </h3>
+
+                    <div class="gk-contact-social-links">
+
+                        <a href="#" aria-label="Instagram">
+                            Instagram
+                        </a>
+
+                        <a href="#" aria-label="Facebook">
+                            Facebook
+                        </a>
+
+                        <a href="#" aria-label="YouTube">
+                            YouTube
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================
+                 RIGHT SIDE FORM
+            ================================== -->
+
+            <div class="gk-contact-form-card">
+
+                <div class="gk-contact-form-heading">
+
+                    <span>
+                        SEND MESSAGE
+                    </span>
+
+                    <h2>
+                        अपना संदेश भेजें
+                    </h2>
+
+                    <p>
+                        नीचे दिए गए फॉर्म को भरकर हमसे संपर्क करें।
+                    </p>
+
+                </div>
+
+
+                <form
+                    class="gk-contact-form"
+                    method="POST"
+                    action=""
+                >
+
+                    {% csrf_token %}
+
+
+                    <!-- Name -->
+
+                    <div class="gk-contact-form-field">
+
+                        <label>
+                            आपका नाम
+                        </label>
+
+                        <input
+                            type="text"
+                            name="name"
+                            placeholder="अपना नाम लिखें"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- Mobile -->
+
+                    <div class="gk-contact-form-field">
+
+                        <label>
+                            मोबाइल नंबर
+                        </label>
+
+                        <input
+                            type="tel"
+                            name="mobile"
+                            placeholder="मोबाइल नंबर लिखें"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- Email -->
+
+                    <div class="gk-contact-form-field">
+
+                        <label>
+                            ईमेल
+                        </label>
+
+                        <input
+                            type="email"
+                            name="email"
+                            placeholder="Email Address"
+                        >
+
+                    </div>
+
+
+                    <!-- Subject -->
+
+                    <div class="gk-contact-form-field">
+
+                        <label>
+                            विषय
+                        </label>
+
+                        <select name="subject">
+
+                            <option value="">
+                                विषय चुनें
+                            </option>
+
+                            <option value="Kundli">
+                                कुंडली विश्लेषण
+                            </option>
+
+                            <option value="Marriage">
+                                विवाह मिलान
+                            </option>
+
+                            <option value="Career">
+                                करियर मार्गदर्शन
+                            </option>
+
+                            <option value="Business">
+                                व्यवसाय परामर्श
+                            </option>
+
+                            <option value="Vastu">
+                                वास्तु परामर्श
+                            </option>
+
+                            <option value="Pooja">
+                                पूजा एवं अनुष्ठान
+                            </option>
+
+                            <option value="Other">
+                                अन्य
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- Message -->
+
+                    <div class="gk-contact-form-field gk-contact-textarea">
+
+                        <label>
+                            आपका संदेश
+                        </label>
+
+                        <textarea
+                            name="message"
+                            placeholder="अपना प्रश्न या संदेश लिखें..."
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+                    <!-- Submit -->
+
+                    <button
+                        type="submit"
+                        class="gk-contact-submit"
+                    >
+
+                        Send Message
+                        <span>→</span>
+
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         MAP SECTION
+    ========================================== -->
+
+    <section class="gk-contact-location">
+
+        <div class="gk-contact-location-heading">
+
+            <span>
+                OUR LOCATION
+            </span>
+
+            <h2>
+                हमारे स्थान पर आएं
+            </h2>
+
+            <p>
+                गौरीशंकर ज्योतिष केंद्र, उज्जैन
+            </p>
+
+        </div>
+
+
+        <div class="gk-contact-map">
+
+            <iframe
+                src="https://www.google.com/maps?q=Ujjain,Madhya%20Pradesh&output=embed"
+                loading="lazy"
+                allowfullscreen
+                referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         FINAL CTA
+    ========================================== -->
+
+    <section class="gk-contact-final">
+
+        <div class="gk-contact-final-om">
+            ॐ
+        </div>
+
+        <h2>
+            आपकी आस्था, हमारा मार्गदर्शन
+        </h2>
+
+        <p>
+            जीवन से जुड़े महत्वपूर्ण प्रश्नों के लिए
+            अनुभवी ज्योतिषीय मार्गदर्शन प्राप्त करें।
+        </p>
+
+        <a
+            href="#"
+            class="gk-contact-book-btn"
+        >
+            Book Appointment
+        </a>
+
+    </section>
+
+</div>
+
+{% endblock %}

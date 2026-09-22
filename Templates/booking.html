@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-7">
+            <div class="card text-white p-4 p-md-5 shadow-lg" style="background-color: #121212; border: 1px solid rgba(212, 175, 55, 0.4); border-radius: 15px;">
+                
+                <h2 class="text-center mb-2" style="color: #f4ce6a; font-family: 'Georgia', serif;">
+                    ऑनलाइन परामर्श बुकिंग
+                </h2>
+                <p class="text-center text-muted mb-4" style="color: #cccccc !important;">गौरीशंकर ज्योतिष केंद्र - अपॉइंटमेंट लें</p>
+
+                <!-- Success / Error Messages -->
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            {{ message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+
+                <form method="POST">
+                    {% csrf_token %}
+
+                    <div class="row g-3 mb-3">
+                        <div class="col-md-6">
+                            <label class="form-label fw-bold" style="color: #f4ce6a;">पूरा नाम *</label>
+                            {{ form.full_name }}
+                            {% if form.full_name.errors %}
+                                <div class="text-danger small mt-1">{{ form.full_name.errors.0 }}</div>
+                            {% endif %}
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label fw-bold" style="color: #f4ce6a;">फ़ोन नंबर *</label>
+                            {{ form.phone }}
+                            {% if form.phone.errors %}
+                                <div class="text-danger small mt-1">{{ form.phone.errors.0 }}</div>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <div class="row g-3 mb-3">
+                        <div class="col-md-6">
+                            <label class="form-label fw-bold" style="color: #f4ce6a;">ईमेल (ऐच्छिक)</label>
+                            {{ form.email }}
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label fw-bold" style="color: #f4ce6a;">सेवा चुनें *</label>
+                            {{ form.service }}
+                            {% if form.service.errors %}
+                                <div class="text-danger small mt-1">{{ form.service.errors.0 }}</div>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <div class="row g-3 mb-3">
+                        <div class="col-md-6">
+                            <label class="form-label fw-bold" style="color: #f4ce6a;">पसंद की तारीख *</label>
+                            {{ form.preferred_date }}
+                            {% if form.preferred_date.errors %}
+                                <div class="text-danger small mt-1">{{ form.preferred_date.errors.0 }}</div>
+                            {% endif %}
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label fw-bold" style="color: #f4ce6a;">पसंद का समय *</label>
+                            {{ form.preferred_time }}
+                            {% if form.preferred_time.errors %}
+                                <div class="text-danger small mt-1">{{ form.preferred_time.errors.0 }}</div>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label fw-bold" style="color: #f4ce6a;">जन्म विवरण (Birth Details)</label>
+                        {{ form.birth_details }}
+                        <small class="text-muted d-block mt-1">उदाहरण: 15 Aug 1995, 08:30 AM, उज्जैन</small>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label fw-bold" style="color: #f4ce6a;">अतिरिक्त संदेश / सवाल</label>
+                        {{ form.message }}
+                    </div>
+
+                    <button type="submit" class="btn w-100 fw-bold py-2 shadow" style="background-color: #f4ce6a; color: #000; font-size: 1.1rem; border-radius: 8px;">
+                        बुकिंग कन्फर्म करें
+                    </button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+
+    <h1>{{ category.name }}</h1>
+
+    {% for blog in blogs %}
+
+        <div class="blog-card">
+
+            <h2>{{ blog.title }}</h2>
+
+            <p>{{ blog.content|truncatewords:40 }}</p>
+
+        </div>
+
+    {% empty %}
+
+        <p>Is category me koi blog available nahi hai.</p>
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}

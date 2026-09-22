@@ -1,0 +1,411 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+
+    <!-- Canvas for Particle Background in Preloader -->
+    <div id="preloader">
+        <canvas id="particle-canvas"></canvas>
+        <div class="loader-wrapper">
+            <div class="rotating-chakra"></div>
+            <div class="glowing-om">ॐ</div>
+            <div class="om-orbit">
+                <div class="orbit-node" style="transform: rotate(0deg) translateY(-130px);"><div class="node-text">ॐ</div></div>
+                <div class="orbit-node" style="transform: rotate(60deg) translateY(-130px);"><div class="node-text">ॐ</div></div>
+                <div class="orbit-node" style="transform: rotate(120deg) translateY(-130px);"><div class="node-text">ॐ</div></div>
+                <div class="orbit-node" style="transform: rotate(180deg) translateY(-130px);"><div class="node-text">ॐ</div></div>
+                <div class="orbit-node" style="transform: rotate(240deg) translateY(-130px);"><div class="node-text">ॐ</div></div>
+                <div class="orbit-node" style="transform: rotate(300deg) translateY(-130px);"><div class="node-text">ॐ</div></div>
+            </div>
+        </div>
+        <div class="loader-title">गौरीशंकर ज्योतिष केंद्र</div>
+        <div class="loader-tagline">वैदिक ज्ञान • ज्योतिषीय मार्गदर्शन</div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h3><i class="fa-solid fa-om"></i> GOURISHANKAR JYOTISH KENDRA</h3>
+                <div class="tagline-badge">"विश्वास • सेवा • समाधान"</div>
+                <h1>वैदिक ज्योतिष एवं संपूर्ण ग्रह दोष निवारण केंद्र</h1>
+                <p class="hero-desc">150 से अधिक वर्षों का प्रामाणिक अनुभव। जीवन की समस्याओं जैसे विवाह, करियर, व्यापार, एवं वास्तु दोष का सटीक ज्योतिषीय समाधान।</p>
+                
+                <div class="hero-badges">
+                    <div class="badge-item"><i class="fa-solid fa-circle-check"></i> Kundli Analysis</div>
+                    <div class="badge-item"><i class="fa-solid fa-circle-check"></i> Marriage Matching</div>
+                    <div class="badge-item"><i class="fa-solid fa-circle-check"></i> Career Guidance</div>
+                    <div class="badge-item"><i class="fa-solid fa-circle-check"></i> Business Growth</div>
+                    <div class="badge-item"><i class="fa-solid fa-circle-check"></i> Vastu Shastra</div>
+                    <div class="badge-item"><i class="fa-solid fa-circle-check"></i> Vedic Pooja</div>
+                </div>
+
+                <div class="hero-btns">
+                    <button class="btn-gold" onclick="openModal()"><i class="fa-solid fa-calendar-day"></i> Book Appointment</button>
+                    <a href="#contact" class="btn-outline"><i class="fa-solid fa-user-ninja"></i> Contact Pandit Ji</a>
+                </div>
+            </div>
+
+            <div class="hero-image-wrapper">
+                <div class="pandit-frame">
+                    <img src="{% static 'image/panditji.png' %}" alt="Pandit Ji" class="pandit-img">
+                    <div class="exp-ribbon">
+                        <i class="fa-solid fa-award"></i> 40+ Years Exp.
+                        <i class="fa-solid fa-award"></i>पं आचार्य अविनाश उपाध्याय
+                    </div>
+                    <div class="exx1">
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="section-header">
+            <span class="section-subtitle">What We Offer</span>
+            <h2 class="section-title">मुख्य ज्योतिषीय सेवाएं</h2>
+            <div class="title-divider"></div>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon"><i class="fa-solid fa-scroll"></i></div>
+                <h3>Kundli Analysis</h3>
+                <p>सटीक जन्मपत्री विश्लेषण द्वारा भविष्यफल, ग्रह दशा एवं योगों की संपूर्ण जानकारी।</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fa-solid fa-heart"></i></div>
+                <h3>Match Making</h3>
+                <p>अष्टकूट गुण मिलान, मांगलिक दोष जांच एवं सुखी वैवाहिक जीवन हेतु परामर्श।</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fa-solid fa-user-tie"></i></div>
+                <h3>Career Guidance</h3>
+                <p>नौकरी, पदोन्नति, एवं करियर में आ रही रुकावटों का अचूक वैदिक समाधान।</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fa-solid fa-briefcase"></i></div>
+                <h3>Business Consultation</h3>
+                <p>व्यापार में वृद्धि, नए निवेश, एवं व्यावसायिक समस्याओं का निवारण।</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fa-solid fa-coins"></i></div>
+                <h3>Financial Problems</h3>
+                <p>ऋण मुक्ति, धन हानि रोकने एवं आर्थिक समृद्धि हेतु सिद्ध उपाय।</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fa-solid fa-compass"></i></div>
+                <h3>Vastu Consultation</h3>
+                <p>भवन, दुकान एवं कार्यस्थल के वास्तु दोषों का बिना तोड़-फोड़ समाधान।</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fa-solid fa-fill-drip"></i></div>
+                <h3>Rudrabhishek</h3>
+                <p>भगवान शिव का वैदिक विधि से महाद्रव्य रुद्राभिषेक पूजन।</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                <h3>Mahamrityunjay Jaap</h3>
+                <p>स्वास्थ्य लाभ, अकाल मृत्यु भय निवारण एवं दीर्घायु हेतु महामृत्युंजय पाठ।</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fa-solid fa-fire-burner"></i></div>
+                <h3>Baglamukhi Pooja</h3>
+                <p>शत्रु बाधा, कोर्ट-कचहरी मुकदमों में विजय एवं सुरक्षा हेतु सिद्ध बगलामुखी अनुष्ठान।</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Astrology Tools Section -->
+    <section id="tools">
+        <div class="section-header">
+            <span class="section-subtitle">Free Online Features</span>
+            <h2 class="section-title">एस्ट्रोलॉजी टूल्स & पंचांग</h2>
+            <div class="title-divider"></div>
+        </div>
+
+        <div class="tools-grid">
+            <div class="tool-card"><i class="fa-solid fa-book-open-reader"></i><h4>Online Kundli</h4></div>
+            <div class="tool-card"><i class="fa-solid fa-calendar-days"></i><h4>Panchang</h4></div>
+            <div class="tool-card"><i class="fa-solid fa-sun"></i><h4>Hindu Calendar</h4></div>
+            <div class="tool-card"><i class="fa-solid fa-moon"></i><h4>Today's Tithi</h4></div>
+            <div class="tool-card"><i class="fa-solid fa-star"></i><h4>Today's Nakshatra</h4></div>
+            <div class="tool-card"><i class="fa-solid fa-clock-rotate-left"></i><h4>Today's Rahukaal</h4></div>
+            <div class="tool-card"><i class="fa-solid fa-bell"></i><h4>Shubh Muhurat</h4></div>
+            <div class="tool-card"><i class="fa-solid fa-infinity"></i><h4>Match Making</h4></div>
+            <div class="tool-card"><i class="fa-solid fa-calculator"></i><h4>Numerology</h4></div>
+            <div class="tool-card"><i class="fa-solid fa-chart-pie"></i><h4>Rashifal</h4></div>
+        </div>
+    </section>
+
+    
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox">
+        <span class="close-lightbox" onclick="closeLightbox()">&times;</span>
+        <img id="lightbox-img" src="" alt="Full View">
+    </div>
+
+    <!-- Animated Counters Section -->
+    <section class="why-us-bg" id="why-us">
+        <div class="section-header">
+            <span class="section-subtitle">Our Track Record</span>
+            <h2 class="section-title">हमारा अटूट विश्वास</h2>
+            <div class="title-divider"></div>
+        </div>
+
+        <div class="counters-grid">
+            <div class="counter-card">
+                <h2 class="counter" data-target="40">0</h2>
+                <p>Years Experience</p>
+            </div>
+            <div class="counter-card">
+                <h2 class="counter" data-target="5000">0</h2>
+                <p>Happy Clients</p>
+            </div>
+            <div class="counter-card">
+                <h2 class="counter" data-target="10000">0</h2>
+                <p>Kundli Analyzed</p>
+            </div>
+            <div class="counter-card">
+                <h2 class="counter" data-target="100">0</h2>
+                <p>% Trusted Guidance</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials">
+        <div class="section-header">
+            <span class="section-subtitle">Client Reviews</span>
+            <h2 class="section-title">श्रद्धालुओं के अनुभव</h2>
+            <div class="title-divider"></div>
+        </div>
+
+        <div class="testimonials-container">
+            <div class="testimonial-slide active">
+                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p class="testimonial-text">"पंडित गौरीशंकर जी के मार्गदर्शन से मेरे व्यापार की सभी रुकावटें दूर हो गईं। उनका वास्तु परामर्श बहुत ही प्रभावी रहा।"</p>
+                <div class="client-name">राजेश शर्मा</div>
+                <div class="client-location">इंदौर (म.प्र.)</div>
+            </div>
+            <div class="testimonial-slide">
+                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p class="testimonial-text">"मेरी बेटी के विवाह में मांगलिक दोष की समस्या थी। शास्त्री जी द्वारा कराए गए निवारण के बाद सुयोग्य वर प्राप्त हुआ।"</p>
+                <div class="client-name">सुनीता वर्मा</div>
+                <div class="client-location">नई दिल्ली</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating Action Buttons -->
+    <div class="floating-action-btn">
+        <button class="float-btn float-appoint" onclick="openModal()"><i class="fa-regular fa-calendar-plus"></i> Book Appointment</button>
+        <a href="https://wa.me/919876543210" class="float-btn float-wa" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="tel:+919876543210" class="float-btn float-call"><i class="fa-solid fa-phone"></i></a>
+    </div>
+
+    <!-- Appointment Modal Form -->
+    <div class="modal-backdrop" id="appointmentModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <div class="section-header" style="margin-bottom: 25px;">
+                <h3 class="section-title" style="font-size: 24px;">Book Appointment</h3>
+                <p style="color: var(--text-muted); font-size: 13px;">पंडित जी से परामर्श हेतु विवरण भरें</p>
+            </div>
+
+            <form onsubmit="handleAppointmentSubmit(event)">
+                <div class="form-grid-2">
+                    <div class="form-group"><input type="text" class="form-control" placeholder="Full Name *" required></div>
+                    <div class="form-group"><input type="tel" class="form-control" placeholder="Mobile Number *" required></div>
+                </div>
+                <div class="form-grid-2">
+                    <div class="form-group"><input type="tel" class="form-control" placeholder="WhatsApp Number"></div>
+                    <div class="form-group"><input type="email" class="form-control" placeholder="Email Address"></div>
+                </div>
+                <div class="form-grid-2">
+                    <div class="form-group"><input type="text" class="form-control" placeholder="City *" required></div>
+                    <div class="form-group">
+                        <select class="form-control" required style="color: #aaa;">
+                            <option value="">Select Problem Type *</option>
+                            <option value="Kundli">Kundli Analysis</option>
+                            <option value="Marriage">Marriage Matching</option>
+                            <option value="Career">Career / Business</option>
+                            <option value="Vastu">Vastu Consultation</option>
+                            <option value="Pooja">Pooja / Anushthan</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-grid-2">
+                    <div class="form-group"><input type="date" class="form-control" title="Preferred Date" required></div>
+                    <div class="form-group"><input type="time" class="form-control" title="Preferred Time" required></div>
+                </div>
+                <div class="form-grid-2">
+                    <div class="form-group"><input type="text" class="form-control" placeholder="Birth Date (DD/MM/YYYY)"></div>
+                    <div class="form-group"><input type="text" class="form-control" placeholder="Birth Time & Place"></div>
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control" rows="3" placeholder="Additional Message / Specific Query"></textarea>
+                </div>
+                <button type="submit" class="btn-gold" style="width: 100%; justify-content: center;">Submit Appointment Request</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast">Your Appointment Request has been submitted successfully.</div>
+
+    <!-- JavaScript Interactivity -->
+    <script>
+        // Preloader Canvas Particles
+        const canvas = document.getElementById('particle-canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        let particles = [];
+        for(let i=0; i<60; i++) {
+            particles.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                radius: Math.random() * 2 + 1,
+                speedY: Math.random() * 1 + 0.5,
+                opacity: Math.random()
+            });
+        }
+
+        function drawParticles() {
+            ctx.clearRect(0,0,canvas.width, canvas.height);
+            ctx.fillStyle = '#f4ce6a';
+            particles.forEach(p => {
+                ctx.globalAlpha = p.opacity;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.radius, 0, Math.PI*2);
+                ctx.fill();
+                p.y -= p.speedY;
+                if(p.y < 0) p.y = canvas.height;
+            });
+            requestAnimationFrame(drawParticles);
+        }
+        drawParticles();
+
+        // Hide Preloader
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const preloader = document.getElementById('preloader');
+                preloader.style.opacity = '0';
+                preloader.style.visibility = 'hidden';
+            }, 3500);
+        });
+
+        // Theme Toggle (Dark / Light)
+        const themeToggleBtn = document.getElementById('themeToggle');
+        themeToggleBtn.addEventListener('click', () => {
+            document.body.classList.toggle('light-mode');
+            const icon = themeToggleBtn.querySelector('i');
+            if(document.body.classList.contains('light-mode')) {
+                icon.className = 'fa-solid fa-sun';
+            } else {
+                icon.className = 'fa-solid fa-moon';
+            }
+        });
+
+        // Mobile Nav Toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navMenu = document.getElementById('navMenu');
+        mobileToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Modal Controls
+        function openModal() {
+            document.getElementById('appointmentModal').style.display = 'flex';
+        }
+        function closeModal() {
+            document.getElementById('appointmentModal').style.display = 'none';
+        }
+
+        // Form Submit Handlers
+        function handleAppointmentSubmit(e) {
+            e.preventDefault();
+            closeModal();
+            showToast("Your Appointment Request has been submitted successfully.");
+        }
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            showToast("Message sent successfully! We will contact you soon.");
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            toast.innerText = msg;
+            toast.style.display = 'block';
+            setTimeout(() => { toast.style.display = 'none'; }, 4000);
+        }
+
+        // Lightbox Gallery Controls
+        function openLightbox(src) {
+            document.getElementById('lightbox-img').src = src;
+            document.getElementById('lightbox').style.display = 'flex';
+        }
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+        }
+
+        // Gallery Filter
+        function filterGallery(category) {
+            const items = document.querySelectorAll('.gallery-item');
+            const btns = document.querySelectorAll('.filter-btn');
+            btns.forEach(b => b.classList.remove('active'));
+            event.target.classList.add('active');
+
+            items.forEach(item => {
+                if(category === 'all' || item.classList.contains(category)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // Animated Number Counters
+        let animated = false;
+        window.addEventListener('scroll', () => {
+            const counterSec = document.getElementById('why-us');
+            if(!counterSec) return;
+            const pos = counterSec.getBoundingClientRect().top;
+            if(pos < window.innerHeight && !animated) {
+                animated = true;
+                document.querySelectorAll('.counter').forEach(c => {
+                    const target = +c.getAttribute('data-target');
+                    let count = 0;
+                    const inc = target / 60;
+                    const update = () => {
+                        count += inc;
+                        if(count < target) {
+                            c.innerText = Math.ceil(count) + (target === 100 ? '%' : '+');
+                            setTimeout(update, 25);
+                        } else {
+                            c.innerText = target + (target === 100 ? '%' : '+');
+                        }
+                    };
+                    update();
+                });
+            }
+        });
+
+        // Testimonial Auto Slider
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.testimonial-slide');
+        setInterval(() => {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }, 5000);
+    </script>
+    
+ {% endblock %}

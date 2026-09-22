@@ -1,0 +1,30 @@
+
+    <header>
+        <nav class="navbar">
+            <a href="#home" class="logo">
+                <i class="fa-solid fa-om logo-icon"></i>
+                <div class="logo-text">
+                    <h1>गौरीशंकर ज्योतिष केंद्र</h1>
+                    <span>GOURISHANKAR JYOTISH KENDRA</span>
+                </div>
+            </a>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="{% url 'home' %}" class="nav-link">Home</a></li>
+                <li><a href="{% url 'about' %}" class="nav-link">About</a></li>
+                <li><a href="{% url 'service' %}" class="nav-link">Services</a></li>
+                <li><a href="{% url 'gallery' %}" class="nav-link">Gallery</a></li>
+                <li><a href="{% url 'contact' %}" class="nav-link">Contact</a></li>
+                <li><a href="{% url 'blog_list' %}" class="nav-link">Blogs</a></li>
+            </ul>
+
+            <div class="header-actions">
+                <button class="theme-toggle" id="themeToggle" title="Toggle Theme"><i class="fa-solid fa-moon"></i></button>
+<a href="{% url 'booking' %}" class="btn-gold">
+    <i class="fa-regular fa-calendar-check"></i>
+    Book Appointment
+</a>
+                <div class="mobile-toggle" id="mobileToggle"><i class="fa-solid fa-bars"></i></div>
+            </div>
+        </nav>
+    </header>
