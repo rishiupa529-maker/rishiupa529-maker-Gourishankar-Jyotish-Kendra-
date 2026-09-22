@@ -1,0 +1,226 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% load static %}
+
+
+
+    <!-- Header -->
+    <section class="blog-header">
+        <h1>गौरीशंकर ज्योतिष केंद्र</h1>
+        <p>Astrology • Spirituality • Vastu • Jyotish Knowledge</p>
+    </section>
+
+
+    <div class="container">
+
+        <!-- Search -->
+        <div class="search-box">
+            <form method="GET">
+
+                <input
+                    type="text"
+                    name="search"
+                    placeholder="Search blogs..."
+                    value="{{ request.GET.search|default:'' }}"
+                >
+
+                <button type="submit">
+                    Search
+                </button>
+
+            </form>
+        </div>
+
+
+        <!-- Categories -->
+        <div class="categories">
+
+            <a href="{% url 'blog_list' %}" class="category-btn">
+                All
+            </a>
+
+            {% for category in categories %}
+
+                <a
+                    href="{% url 'category_blogs' category.slug %}"
+                    class="category-btn"
+                >
+                    {{ category.name }}
+                </a>
+
+            {% endfor %}
+
+        </div>
+
+
+        <!-- Featured Blogs -->
+        {% if featured_blogs %}
+
+            <div class="section-title">
+                <h2>⭐ Featured Blogs</h2>
+            </div>
+
+            <div class="featured-grid">
+
+                {% for blog in featured_blogs %}
+
+                    <div class="blog-card">
+
+                        {% if blog.featured_image %}
+                            <img
+                                src="{{ blog.featured_image.url }}"
+                                alt="{{ blog.title }}"
+                                class="blog-image"
+                            >
+                        {% else %}
+                            <div class="no-image">
+                                ॐ
+                            </div>
+                        {% endif %}
+
+                        <div class="blog-content">
+
+                            {% if blog.category %}
+                                <span class="blog-category">
+                                    {{ blog.category.name }}
+                                </span>
+                            {% endif %}
+
+                            <h3>
+                                {{ blog.title }}
+                            </h3>
+
+                            <p class="blog-description">
+                                {{ blog.short_description|truncatewords:25 }}
+                            </p>
+
+                            <div class="blog-meta">
+                                <span>
+                                    By {{ blog.author.username }}
+                                </span>
+
+                                <span>
+                                    {{ blog.created_at|date:"d M Y" }}
+                                </span>
+                            </div>
+
+                            <a
+                                href="{% url 'blog_detail' blog.slug %}"
+                                class="read-more"
+                            >
+                                Read More →
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                {% endfor %}
+
+            </div>
+
+        {% endif %}
+
+
+        <!-- All Blogs -->
+        <div class="section-title">
+            <h2>📝 Latest Blogs</h2>
+        </div>
+
+
+        {% if blogs %}
+
+            <div class="blog-grid">
+
+                {% for blog in blogs %}
+
+                    <article class="blog-card">
+
+                        {% if blog.featured_image %}
+
+                            <img
+                                src="{{ blog.featured_image.url }}"
+                                alt="{{ blog.title }}"
+                                class="blog-image"
+                            >
+
+                        {% else %}
+
+                            <div class="no-image">
+                                ॐ
+                            </div>
+
+                        {% endif %}
+
+
+                        <div class="blog-content">
+
+                            {% if blog.category %}
+
+                                <span class="blog-category">
+                                    {{ blog.category.name }}
+                                </span>
+
+                            {% endif %}
+
+
+                            <h3>
+                                {{ blog.title }}
+                            </h3>
+
+
+                            <p class="blog-description">
+                                {{ blog.short_description|truncatewords:25 }}
+                            </p>
+
+
+                            <div class="blog-meta">
+
+                                <span>
+                                    👤 {{ blog.author.username }}
+                                </span>
+
+                                <span>
+                                    📅 {{ blog.created_at|date:"d M Y" }}
+                                </span>
+
+                            </div>
+
+
+                            <a
+                                href="{% url 'blog_detail' blog.slug %}"
+                                class="read-more"
+                            >
+                                Read More →
+                            </a>
+
+                        </div>
+
+                    </article>
+
+                {% endfor %}
+
+            </div>
+
+
+        {% else %}
+
+            <div class="empty">
+
+                <h3>No Blogs Found</h3>
+
+                <p>
+                    {% if request.GET.search %}
+                        No blogs found for "{{ request.GET.search }}".
+                    {% else %}
+                        अभी तक कोई blog publish नहीं किया गया है।
+                    {% endif %}
+                </p>
+
+            </div>
+
+        {% endif %}
+
+    </div>
+{% endblock %}

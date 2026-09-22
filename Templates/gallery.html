@@ -1,0 +1,1174 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+
+<div class="gk-gallery-page">
+
+
+    <!-- =========================================
+         GALLERY INTRO
+    ========================================== -->
+
+    <section class="gk-gallery-intro">
+
+        <div class="gk-gallery-intro-inner">
+
+            <p>
+                गौरीशंकर ज्योतिष केंद्र से जुड़े धार्मिक आयोजनों,
+                पूजा-अनुष्ठानों, मंदिरों और विशेष कार्यक्रमों की
+                तस्वीरों का संग्रह।
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         CATEGORY FILTER
+    ========================================== -->
+
+    <section class="gk-gallery-section">
+
+        <div class="gk-gallery-container">
+
+            <div class="gk-gallery-tabs">
+
+                <button
+                    class="gk-gallery-tab gk-gallery-active"
+                    data-filter="all">
+                    <i class="fa-solid fa-border-all"></i>
+                    सभी
+                </button>
+
+                <button
+                    class="gk-gallery-tab"
+                    data-filter="temple">
+                    <i class="fa-solid fa-gopuram"></i>
+                    Temple
+                </button>
+
+                <button
+                    class="gk-gallery-tab"
+                    data-filter="pooja">
+                    <i class="fa-solid fa-om"></i>
+                    Pooja
+                </button>
+
+                <button
+                    class="gk-gallery-tab"
+                    data-filter="event">
+                    <i class="fa-solid fa-calendar-days"></i>
+                    Event
+                </button>
+
+                <button
+                    class="gk-gallery-tab"
+                    data-filter="yagya">
+                    <i class="fa-solid fa-fire"></i>
+                    Yagya
+                </button>
+
+                <button
+                    class="gk-gallery-tab"
+                    data-filter="other">
+                    <i class="fa-solid fa-images"></i>
+                    Other
+                </button>
+
+            </div>
+
+
+            <!-- =====================================
+                 GALLERY GRID
+            ====================================== -->
+
+            <div class="gk-gallery-grid">
+
+
+                <!-- TEMPLE 1 -->
+
+                <div class="gk-gallery-item"
+                     data-category="temple">
+
+                    <img src="https://i.pinimg.com/736x/94/50/35/945035d7744e0f5a1b23f334c2a5fd51.jpg"
+                         alt="Temple">
+
+                    <div class="gk-gallery-overlay">
+
+                        <div class="gk-gallery-overlay-content">
+
+                            <span>Temple</span>
+
+                            <h3>
+                                पवित्र मंदिर
+                            </h3>
+
+                            <button
+                                class="gk-gallery-view"
+                                data-image="https://i.pinimg.com/736x/94/50/35/945035d7744e0f5a1b23f334c2a5fd51.jpg">
+                                <i class="fa-solid fa-expand"></i>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- TEMPLE 2 -->
+
+                <div class="gk-gallery-item"
+                     data-category="temple">
+
+                    <img src="{% static 'image/temple2.jpg' %}"
+                         alt="Temple">
+
+                    <div class="gk-gallery-overlay">
+
+                        <div class="gk-gallery-overlay-content">
+
+                            <span>Temple</span>
+
+                            <h3>
+                                मंदिर दर्शन
+                            </h3>
+
+                            <button
+                                class="gk-gallery-view"
+                                data-image="{% static 'image/temple2.jpg' %}">
+                                <i class="fa-solid fa-expand"></i>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- TEMPLE 3 -->
+
+                <div class="gk-gallery-item"
+                     data-category="temple">
+
+                    <img src="{% static 'image/temple3.jpg' %}"
+                         alt="Temple">
+
+                    <div class="gk-gallery-overlay">
+
+                        <div class="gk-gallery-overlay-content">
+
+                            <span>Temple</span>
+
+                            <h3>
+                                दिव्य स्थान
+                            </h3>
+
+                            <button
+                                class="gk-gallery-view"
+                                data-image="{% static 'image/temple3.jpg' %}">
+                                <i class="fa-solid fa-expand"></i>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- TEMPLE 4 -->
+
+                <div class="gk-gallery-item"
+                     data-category="temple">
+
+                    <img src="{% static 'image/temple4.jpg' %}"
+                         alt="Temple">
+
+                    <div class="gk-gallery-overlay">
+
+                        <div class="gk-gallery-overlay-content">
+
+                            <span>Temple</span>
+
+                            <h3>
+                                मंदिर परिसर
+                            </h3>
+
+                            <button
+                                class="gk-gallery-view"
+                                data-image="{% static 'image/temple4.jpg' %}">
+                                <i class="fa-solid fa-expand"></i>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- TEMPLE 5 -->
+
+                <div class="gk-gallery-item"
+                     data-category="temple">
+
+                    <img src="{% static 'image/temple1.jpg' %}"
+                         alt="Temple">
+
+                    <div class="gk-gallery-overlay">
+
+                        <div class="gk-gallery-overlay-content">
+
+                            <span>Temple</span>
+
+                            <h3>
+                                आध्यात्मिक वातावरण
+                            </h3>
+
+                            <button
+                                class="gk-gallery-view"
+                                data-image="{% static 'image/temple1.jpg' %}">
+                                <i class="fa-solid fa-expand"></i>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- TEMPLE 6 -->
+
+                <div class="gk-gallery-item"
+                     data-category="temple">
+
+                    <img src="{% static 'image/temple7.png' %}"
+                         alt="Temple">
+
+                    <div class="gk-gallery-overlay">
+
+                        <div class="gk-gallery-overlay-content">
+
+                            <span>Temple</span>
+
+                            <h3>
+                                पावन धाम
+                            </h3>
+
+                            <button
+                                class="gk-gallery-view"
+                                data-image="{% static 'image/temple7.png' %}">
+                                <i class="fa-solid fa-expand"></i>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================
+                     POOJA
+                ================================== -->
+
+                <div class="gk-gallery-item"
+                     data-category="pooja">
+
+                    <img src="gallery/pooja1.jpg"
+                         alt="Pooja">
+
+                    <div class="gk-gallery-overlay">
+
+                        <div class="gk-gallery-overlay-content">
+
+                            <span>Pooja</span>
+
+                            <h3>पूजा अनुष्ठान</h3>
+
+                            <button
+                                class="gk-gallery-view"
+                                data-image="gallery/pooja1.jpg">
+                                <i class="fa-solid fa-expand"></i>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="gk-gallery-item"
+                     data-category="pooja">
+
+                    <img src="gallery/pooja2.jpg"
+                         alt="Pooja">
+
+                    <div class="gk-gallery-overlay">
+
+                        <div class="gk-gallery-overlay-content">
+
+                            <span>Pooja</span>
+
+                            <h3>विशेष पूजा</h3>
+
+                            <button
+                                class="gk-gallery-view"
+                                data-image="gallery/pooja2.jpg">
+                                <i class="fa-solid fa-expand"></i>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="gk-gallery-item"
+                     data-category="pooja">
+
+                    <img src="gallery/pooja3.jpg"
+                         alt="Pooja">
+
+                    <div class="gk-gallery-overlay">
+
+                        <div class="gk-gallery-overlay-content">
+
+                            <span>Pooja</span>
+
+                            <h3>धार्मिक पूजा</h3>
+
+                            <button
+                                class="gk-gallery-view"
+                                data-image="gallery/pooja3.jpg">
+                                <i class="fa-solid fa-expand"></i>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="gk-gallery-item"
+                     data-category="pooja">
+
+                    <img src="gallery/pooja4.jpg"
+                         alt="Pooja">
+
+                    <div class="gk-gallery-overlay">
+
+                        <div class="gk-gallery-overlay-content">
+
+                            <span>Pooja</span>
+
+                            <h3>वैदिक पूजा</h3>
+
+                            <button
+                                class="gk-gallery-view"
+                                data-image="gallery/pooja4.jpg">
+                                <i class="fa-solid fa-expand"></i>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="gk-gallery-item"
+                     data-category="pooja">
+
+                    <img src="gallery/pooja5.jpg"
+                         alt="Pooja">
+
+                    <div class="gk-gallery-overlay">
+
+                        <div class="gk-gallery-overlay-content">
+
+                            <span>Pooja</span>
+
+                            <h3>पूजन कार्यक्रम</h3>
+
+                            <button
+                                class="gk-gallery-view"
+                                data-image="gallery/pooja5.jpg">
+                                <i class="fa-solid fa-expand"></i>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="gk-gallery-item"
+                     data-category="pooja">
+
+                    <img src="gallery/pooja6.jpg"
+                         alt="Pooja">
+
+                    <div class="gk-gallery-overlay">
+
+                        <div class="gk-gallery-overlay-content">
+
+                            <span>Pooja</span>
+
+                            <h3>पारंपरिक अनुष्ठान</h3>
+
+                            <button
+                                class="gk-gallery-view"
+                                data-image="gallery/pooja6.jpg">
+                                <i class="fa-solid fa-expand"></i>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================
+                     EVENT
+                ================================== -->
+
+                <div class="gk-gallery-item"
+                     data-category="event">
+
+                    <img src="{% static 'image/event1.jpg' %}"
+                         alt="Event">
+
+                    <div class="gk-gallery-overlay">
+
+                        <div class="gk-gallery-overlay-content">
+
+                            <span>Event</span>
+
+                            <h3>धार्मिक आयोजन</h3>
+
+                            <button
+                                class="gk-gallery-view"
+                                data-image="{% static 'image/event1.jpg' %}">
+                                <i class="fa-solid fa-expand"></i>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="gk-gallery-item"
+                     data-category="event">
+
+                    <img src="{% static 'image/event2.jpg' %}"
+                         alt="Event">
+
+                    <div class="gk-gallery-overlay">
+
+                        <div class="gk-gallery-overlay-content">
+
+                            <span>Event</span>
+
+                            <h3>विशेष कार्यक्रम</h3>
+
+                            <button
+                                class="gk-gallery-view"
+                                data-image="{% static 'image/event2.jpg' %}">
+                                <i class="fa-solid fa-expand"></i>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="gk-gallery-item"
+                     data-category="event">
+
+                    <img src="{% static 'image/event3.jpg' %}"
+                         alt="Event">
+
+                    <div class="gk-gallery-overlay">
+
+                        <div class="gk-gallery-overlay-content">
+
+                            <span>Event</span>
+
+                            <h3>आध्यात्मिक कार्यक्रम</h3>
+
+                            <button
+                                class="gk-gallery-view"
+                                data-image="{% static 'image/event3.jpg' %}">
+                                <i class="fa-solid fa-expand"></i>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="gk-gallery-item"
+                     data-category="event">
+
+                    <img src="{% static 'image/event4.jpg' %}"
+                         alt="Event">
+
+                    <div class="gk-gallery-overlay">
+
+                        <div class="gk-gallery-overlay-content">
+
+                            <span>Event</span>
+
+                            <h3>धार्मिक समारोह</h3>
+
+                            <button
+                                class="gk-gallery-view"
+                                data-image="{% static 'image/event4.jpg' %}">
+                                <i class="fa-solid fa-expand"></i>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="gk-gallery-item"
+                     data-category="event">
+
+                    <img src="{% static 'image/event5.jpg' %}"
+                         alt="Event">
+
+                    <div class="gk-gallery-overlay">
+
+                        <div class="gk-gallery-overlay-content">
+
+                            <span>Event</span>
+
+                            <h3>विशेष अवसर</h3>
+
+                            <button
+                                class="gk-gallery-view"
+                                data-image="gallery/event5.jpg">
+                                <i class="fa-solid fa-expand"></i>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="gk-gallery-item"
+                     data-category="event">
+
+                    <img src="gallery/event6.jpg"
+                         alt="Event">
+
+                    <div class="gk-gallery-overlay">
+
+                        <div class="gk-gallery-overlay-content">
+
+                            <span>Event</span>
+
+                            <h3>सांस्कृतिक आयोजन</h3>
+
+                            <button
+                                class="gk-gallery-view"
+                                data-image="gallery/event6.jpg">
+                                <i class="fa-solid fa-expand"></i>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================
+                     YAGYA
+                ================================== -->
+
+                <div class="gk-gallery-item"
+                     data-category="yagya">
+
+                    <img src="https://i.pinimg.com/736x/d8/13/bb/d813bb1cee08fc831c6f5be1a0762007.jpg"
+                         alt="Yagya">
+
+                    <div class="gk-gallery-overlay">
+
+                        <div class="gk-gallery-overlay-content">
+
+                            <span>Yagya</span>
+
+                            <h3>यज्ञ अनुष्ठान</h3>
+
+                            <button
+                                class="gk-gallery-view"
+                                data-image="https://i.pinimg.com/736x/d8/13/bb/d813bb1cee08fc831c6f5be1a0762007.jpg">
+                                <i class="fa-solid fa-expand"></i>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="gk-gallery-item"
+                     data-category="yagya">
+
+                    <img src="gallery/yagya2.jpg"
+                         alt="Yagya">
+
+                    <div class="gk-gallery-overlay">
+
+                        <div class="gk-gallery-overlay-content">
+
+                            <span>Yagya</span>
+
+                            <h3>वैदिक यज्ञ</h3>
+
+                            <button
+                                class="gk-gallery-view"
+                                data-image="gallery/yagya2.jpg">
+                                <i class="fa-solid fa-expand"></i>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="gk-gallery-item"
+                     data-category="yagya">
+
+                    <img src="gallery/yagya3.jpg"
+                         alt="Yagya">
+
+                    <div class="gk-gallery-overlay">
+
+                        <div class="gk-gallery-overlay-content">
+
+                            <span>Yagya</span>
+
+                            <h3>हवन कार्यक्रम</h3>
+
+                            <button
+                                class="gk-gallery-view"
+                                data-image="gallery/yagya3.jpg">
+                                <i class="fa-solid fa-expand"></i>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="gk-gallery-item"
+                     data-category="yagya">
+
+                    <img src="gallery/yagya4.jpg"
+                         alt="Yagya">
+
+                    <div class="gk-gallery-overlay">
+
+                        <div class="gk-gallery-overlay-content">
+
+                            <span>Yagya</span>
+
+                            <h3>हवन पूजन</h3>
+
+                            <button
+                                class="gk-gallery-view"
+                                data-image="gallery/yagya4.jpg">
+                                <i class="fa-solid fa-expand"></i>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="gk-gallery-item"
+                     data-category="yagya">
+
+                    <img src="gallery/yagya5.jpg"
+                         alt="Yagya">
+
+                    <div class="gk-gallery-overlay">
+
+                        <div class="gk-gallery-overlay-content">
+
+                            <span>Yagya</span>
+
+                            <h3>विशेष यज्ञ</h3>
+
+                            <button
+                                class="gk-gallery-view"
+                                data-image="gallery/yagya5.jpg">
+                                <i class="fa-solid fa-expand"></i>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="gk-gallery-item"
+                     data-category="yagya">
+
+                    <img src="gallery/yagya6.jpg"
+                         alt="Yagya">
+
+                    <div class="gk-gallery-overlay">
+
+                        <div class="gk-gallery-overlay-content">
+
+                            <span>Yagya</span>
+
+                            <h3>धार्मिक हवन</h3>
+
+                            <button
+                                class="gk-gallery-view"
+                                data-image="gallery/yagya6.jpg">
+                                <i class="fa-solid fa-expand"></i>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================
+                     OTHER
+                ================================== -->
+
+                <div class="gk-gallery-item"
+                     data-category="other">
+
+                    <img src="gallery/other1.jpg"
+                         alt="Spiritual">
+
+                    <div class="gk-gallery-overlay">
+
+                        <div class="gk-gallery-overlay-content">
+
+                            <span>Other</span>
+
+                            <h3>आध्यात्मिक झलक</h3>
+
+                            <button
+                                class="gk-gallery-view"
+                                data-image="gallery/other1.jpg">
+                                <i class="fa-solid fa-expand"></i>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="gk-gallery-item"
+                     data-category="other">
+
+                    <img src="gallery/other2.jpg"
+                         alt="Spiritual">
+
+                    <div class="gk-gallery-overlay">
+
+                        <div class="gk-gallery-overlay-content">
+
+                            <span>Other</span>
+
+                            <h3>धार्मिक वातावरण</h3>
+
+                            <button
+                                class="gk-gallery-view"
+                                data-image="gallery/other2.jpg">
+                                <i class="fa-solid fa-expand"></i>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="gk-gallery-item"
+                     data-category="other">
+
+                    <img src="gallery/other3.jpg"
+                         alt="Spiritual">
+
+                    <div class="gk-gallery-overlay">
+
+                        <div class="gk-gallery-overlay-content">
+
+                            <span>Other</span>
+
+                            <h3>पावन क्षण</h3>
+
+                            <button
+                                class="gk-gallery-view"
+                                data-image="gallery/other3.jpg">
+                                <i class="fa-solid fa-expand"></i>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="gk-gallery-item"
+                     data-category="other">
+
+                    <img src="gallery/other4.jpg"
+                         alt="Spiritual">
+
+                    <div class="gk-gallery-overlay">
+
+                        <div class="gk-gallery-overlay-content">
+
+                            <span>Other</span>
+
+                            <h3>विशेष झलक</h3>
+
+                            <button
+                                class="gk-gallery-view"
+                                data-image="gallery/other4.jpg">
+                                <i class="fa-solid fa-expand"></i>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="gk-gallery-item"
+                     data-category="other">
+
+                    <img src="gallery/other5.jpg"
+                         alt="Spiritual">
+
+                    <div class="gk-gallery-overlay">
+
+                        <div class="gk-gallery-overlay-content">
+
+                            <span>Other</span>
+
+                            <h3>आस्था के पल</h3>
+
+                            <button
+                                class="gk-gallery-view"
+                                data-image="gallery/other5.jpg">
+                                <i class="fa-solid fa-expand"></i>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="gk-gallery-item"
+                     data-category="other">
+
+                    <img src="gallery/other6.jpg"
+                         alt="Spiritual">
+
+                    <div class="gk-gallery-overlay">
+
+                        <div class="gk-gallery-overlay-content">
+
+                            <span>Other</span>
+
+                            <h3>स्मरणीय क्षण</h3>
+
+                            <button
+                                class="gk-gallery-view"
+                                data-image="gallery/other6.jpg">
+                                <i class="fa-solid fa-expand"></i>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         LIGHTBOX
+    ========================================== -->
+
+    <div class="gk-gallery-lightbox"
+         id="gkGalleryLightbox">
+
+        <button class="gk-gallery-close"
+                id="gkGalleryClose">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <img
+            id="gkGalleryLargeImage"
+            src="{% static 'image/dadaguru.jpg' %}"
+            alt="Gallery Preview">
+
+    </div>
+
+
+    <!-- =========================================
+         END MESSAGE
+    ========================================== -->
+
+    <section class="gk-gallery-ending">
+
+        <div class="gk-gallery-ending-om">
+            ॐ
+        </div>
+
+        <div class="gk-gallery-ending-line"></div>
+
+        <h2>
+            आस्था • परंपरा • <span>संस्कृति</span>
+        </h2>
+
+        <p>
+            गौरीशंकर ज्योतिष केंद्र
+        </p>
+
+    </section>
+
+</div>
+
+
+<!-- =========================================
+     GALLERY JAVASCRIPT
+========================================== -->
+
+<script>
+
+const gkGalleryTabs =
+    document.querySelectorAll(".gk-gallery-tab");
+
+const gkGalleryItems =
+    document.querySelectorAll(".gk-gallery-item");
+
+
+gkGalleryTabs.forEach(function(tab) {
+
+    tab.addEventListener("click", function() {
+
+        gkGalleryTabs.forEach(function(item) {
+
+            item.classList.remove(
+                "gk-gallery-active"
+            );
+
+        });
+
+
+        this.classList.add(
+            "gk-gallery-active"
+        );
+
+
+        const selectedCategory =
+            this.getAttribute("data-filter");
+
+
+        gkGalleryItems.forEach(function(item) {
+
+            const itemCategory =
+                item.getAttribute("data-category");
+
+
+            if (
+                selectedCategory === "all" ||
+                selectedCategory === itemCategory
+            ) {
+
+                item.classList.remove(
+                    "gk-gallery-hidden"
+                );
+
+                setTimeout(function() {
+
+                    item.classList.add(
+                        "gk-gallery-show"
+                    );
+
+                }, 20);
+
+            } else {
+
+                item.classList.remove(
+                    "gk-gallery-show"
+                );
+
+                item.classList.add(
+                    "gk-gallery-hidden"
+                );
+
+            }
+
+        });
+
+    });
+
+});
+
+
+/* =========================================
+   LIGHTBOX
+========================================= */
+
+const gkGalleryLightbox =
+    document.getElementById(
+        "gkGalleryLightbox"
+    );
+
+const gkGalleryLargeImage =
+    document.getElementById(
+        "gkGalleryLargeImage"
+    );
+
+const gkGalleryClose =
+    document.getElementById(
+        "gkGalleryClose"
+    );
+
+
+document.querySelectorAll(
+    ".gk-gallery-view"
+).forEach(function(button) {
+
+    button.addEventListener(
+        "click",
+        function(event) {
+
+            event.stopPropagation();
+
+            const imagePath =
+                this.getAttribute(
+                    "data-image"
+                );
+
+            gkGalleryLargeImage.src =
+                imagePath;
+
+            gkGalleryLightbox.classList.add(
+                "gk-gallery-lightbox-open"
+            );
+
+            document.body.style.overflow =
+                "hidden";
+
+        }
+    );
+
+});
+
+
+function closeGalleryLightbox() {
+
+    gkGalleryLightbox.classList.remove(
+        "gk-gallery-lightbox-open"
+    );
+
+    document.body.style.overflow =
+        "";
+
+}
+
+
+gkGalleryClose.addEventListener(
+    "click",
+    closeGalleryLightbox
+);
+
+
+gkGalleryLightbox.addEventListener(
+    "click",
+    function(event) {
+
+        if (
+            event.target ===
+            gkGalleryLightbox
+        ) {
+
+            closeGalleryLightbox();
+
+        }
+
+    }
+);
+
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (event.key === "Escape") {
+
+            closeGalleryLightbox();
+
+        }
+
+    }
+);
+
+</script>
+
+{% endblock %}

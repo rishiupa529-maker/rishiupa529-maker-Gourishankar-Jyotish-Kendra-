@@ -1,0 +1,549 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<style>
+    /* =========================
+       ROOT VARIABLES (From home.css)
+    ========================= */
+    :root {
+        --bg-dark: #120904;
+        --bg-card: #221108;
+        --text-light: #fffdf5;
+        --text-muted: #dcc4a6;
+        --gold-primary: #f4ce6a;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        background-color: var(--bg-dark); /* home.css background[cite: 1] */
+        color: var(--text-light);         /* Text color for dark background[cite: 1] */
+        line-height: 1.7;
+    }
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    .page-header {
+        background: linear-gradient(135deg, #5b1608, #9b3d12);
+        padding: 35px 20px;
+        text-align: center;
+        color: white;
+    }
+
+    .page-header h1 {
+        font-size: 32px;
+        margin-bottom: 8px;
+    }
+
+    .page-header p {
+        font-size: 15px;
+        opacity: 0.9;
+    }
+
+    /* =========================
+       MAIN CONTAINER
+    ========================= */
+
+    .container {
+        width: 92%;
+        max-width: 1100px;
+        margin: 45px auto;
+    }
+
+    /* =========================
+       BACK BUTTON
+    ========================= */
+
+    .back-button {
+        display: inline-block;
+        text-decoration: none;
+        color: #8b3511;
+        font-weight: bold;
+        margin-bottom: 25px;
+        transition: 0.3s;
+    }
+
+    .back-button:hover {
+        color: #5b1608;
+    }
+
+    /* =========================
+       BLOG ARTICLE
+    ========================= */
+
+    .blog-detail {
+        background: white;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    /* =========================
+       BLOG IMAGE
+    ========================= */
+
+    .blog-detail-image {
+    width: 100%;
+    height: 400px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+}
+
+    .no-image {
+        width: 100%;
+        height: 350px;
+        background: linear-gradient(135deg, #ead7b7, #c68a45);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 80px;
+    }
+
+    /* =========================
+       BLOG CONTENT
+    ========================= */
+
+    .blog-body {
+        padding: 40px;
+    }
+
+    .blog-category {
+        display: inline-block;
+        background: #f4e2d2;
+        color: #8b3511;
+        padding: 7px 15px;
+        border-radius: 20px;
+        font-size: 13px;
+        font-weight: bold;
+        margin-bottom: 15px;
+    }
+
+    .blog-title {
+        font-size: 40px;
+        line-height: 1.3;
+        color: #4d190c;
+        margin-bottom: 20px;
+    }
+
+    .blog-description {
+        font-size: 18px;
+        color: #666;
+        margin-bottom: 25px;
+        border-left: 4px solid #9b3d12;
+        padding-left: 15px;
+    }
+
+    /* =========================
+       META
+    ========================= */
+
+    .blog-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        border-top: 1px solid #eee;
+        border-bottom: 1px solid #eee;
+        padding: 15px 0;
+        margin-bottom: 30px;
+        color: #777;
+        font-size: 14px;
+    }
+
+    /* =========================
+       CONTENT
+    ========================= */
+
+    .blog-content {
+        font-size: 17px;
+        color: #444;
+    }
+
+    .blog-content p {
+        margin-bottom: 20px;
+    }
+
+    .blog-content h2 {
+        color: #6e210d;
+        margin: 30px 0 15px;
+    }
+
+    .blog-content h3 {
+        color: #8b3511;
+        margin: 25px 0 12px;
+    }
+
+    .blog-content ul,
+    .blog-content ol {
+        margin: 15px 0 20px 25px;
+    }
+
+    .blog-content li {
+        margin-bottom: 8px;
+    }
+
+    .blog-content img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+        margin: 20px 0;
+    }
+
+    /* =========================
+       SHARE / BACK
+    ========================= */
+
+    .article-footer {
+        margin-top: 40px;
+        padding-top: 25px;
+        border-top: 1px solid #eee;
+    }
+
+    .back-to-blogs {
+        display: inline-block;
+        text-decoration: none;
+        background: #9b3d12;
+        color: white;
+        padding: 12px 22px;
+        border-radius: 7px;
+        transition: 0.3s;
+    }
+
+    .back-to-blogs:hover {
+        background: #6e210d;
+    }
+
+    /* =========================
+       RELATED BLOGS
+    ========================= */
+
+    .related-section {
+        margin-top: 55px;
+    }
+
+    .section-title {
+        text-align: center;
+        color: #6e210d;
+        font-size: 28px;
+        margin-bottom: 25px;
+    }
+
+    .related-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 25px;
+    }
+
+    .related-card {
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        transition: 0.3s;
+    }
+
+    .related-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .related-image {
+        width: 100%;
+        height: 170px;
+        object-fit: cover;
+        display: block;
+    }
+
+    .related-no-image {
+        height: 170px;
+        background: linear-gradient(135deg, #ead7b7, #c68a45);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 45px;
+    }
+
+    .related-content {
+        padding: 18px;
+    }
+
+    .related-content h3 {
+        font-size: 18px;
+        color: #4d190c;
+        margin-bottom: 10px;
+    }
+
+    .related-content p {
+        color: #777;
+        font-size: 14px;
+        margin-bottom: 12px;
+    }
+
+    .related-link {
+        text-decoration: none;
+        color: #9b3d12;
+        font-weight: bold;
+        font-size: 14px;
+    }
+
+    .related-link:hover {
+        color: #5b1608;
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 700px) {
+
+        .page-header h1 {
+            font-size: 26px;
+        }
+
+        .container {
+            width: 94%;
+            margin: 25px auto;
+        }
+
+        .blog-body {
+            padding: 25px 20px;
+        }
+
+        .blog-title {
+            font-size: 28px;
+        }
+
+        .blog-description {
+            font-size: 16px;
+        }
+
+        .blog-content {
+            font-size: 16px;
+        }
+
+        .blog-meta {
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .blog-detail-image {
+            max-height: 300px;
+        }
+
+        .no-image {
+            height: 250px;
+        }
+    }
+</style>
+<!-- Page Header -->
+
+<section class="page-header">
+
+    <h1>गौरीशंकर ज्योतिष केंद्र</h1>
+
+    <p>
+        Astrology • Spirituality • Vastu • Jyotish Knowledge
+    </p>
+
+</section>
+
+
+<main class="container">
+
+    <!-- Back -->
+
+    <a href="{% url 'blog_list' %}" class="back-button">
+        ← Back to Blogs
+    </a>
+
+
+    <!-- Blog Article -->
+
+    <article class="blog-detail">
+
+        <!-- Featured Image -->
+
+        {% if blog.featured_image %}
+
+            <img
+                src="{{ blog.featured_image.url }}"
+                alt="{{ blog.title }}"
+                class="blog-detail-image"
+            >
+
+        {% else %}
+
+            <div class="no-image">
+                ॐ
+            </div>
+
+        {% endif %}
+
+
+        <!-- Blog Body -->
+
+        <div class="blog-body">
+
+            <!-- Category -->
+
+            {% if blog.category %}
+
+                <span class="blog-category">
+                    {{ blog.category.name }}
+                </span>
+
+            {% endif %}
+
+
+            <!-- Title -->
+
+            <h1 class="blog-title">
+                {{ blog.title }}
+            </h1>
+
+
+            <!-- Short Description -->
+
+            {% if blog.short_description %}
+
+                <p class="blog-description">
+                    {{ blog.short_description }}
+                </p>
+
+            {% endif %}
+
+
+            <!-- Meta Information -->
+
+            <div class="blog-meta">
+
+                <span>
+                    👤 Author:
+                    {{ blog.author.username }}
+                </span>
+
+                <span>
+                    📅 Published:
+                    {{ blog.created_at|date:"d M Y" }}
+                </span>
+
+                <span>
+                    👁 Views:
+                    {{ blog.views }}
+                </span>
+
+            </div>
+
+
+            <!-- Full Blog Content -->
+
+            <div class="blog-content">
+
+                {{ blog.content|linebreaks }}
+
+            </div>
+
+
+            <!-- Footer -->
+
+            <div class="article-footer">
+
+                <a
+                    href="{% url 'blog_list' %}"
+                    class="back-to-blogs"
+                >
+                    ← View All Blogs
+                </a>
+
+            </div>
+
+        </div>
+
+    </article>
+
+
+    <!-- Related Blogs -->
+
+    {% if related_blogs %}
+
+        <section class="related-section">
+
+            <h2 class="section-title">
+                Related Blogs
+            </h2>
+
+
+            <div class="related-grid">
+
+                {% for related in related_blogs %}
+
+                    <article class="related-card">
+
+                        {% if related.featured_image %}
+
+                            <img
+                                src="{{ related.featured_image.url }}"
+                                alt="{{ related.title }}"
+                                class="related-image"
+                            >
+
+                        {% else %}
+
+                            <div class="related-no-image">
+                                ॐ
+                            </div>
+
+                        {% endif %}
+
+
+                        <div class="related-content">
+
+                            {% if related.category %}
+
+                                <small>
+                                    {{ related.category.name }}
+                                </small>
+
+                            {% endif %}
+
+
+                            <h3>
+                                {{ related.title }}
+                            </h3>
+
+
+                            <p>
+                                {{ related.short_description|truncatewords:18 }}
+                            </p>
+
+
+                            <a
+                                href="{% url 'blog_detail' related.slug %}"
+                                class="related-link"
+                            >
+                                Read More →
+                            </a>
+
+                        </div>
+
+                    </article>
+
+                {% endfor %}
+
+            </div>
+
+        </section>
+
+    {% endif %}
+
+</main>
+
+{% endblock %}
