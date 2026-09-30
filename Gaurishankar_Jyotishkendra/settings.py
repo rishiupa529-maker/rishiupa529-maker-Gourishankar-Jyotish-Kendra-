@@ -14,13 +14,21 @@ from pathlib import Path
 import os
 from dotenv import load_dotenv
 
+# Build paths inside the project like this: BASE_DIR / 'subdir'.
+BASE_DIR = Path(__file__).resolve().parent.parent
+
 # Load environment variables from .env file (only if it exists)
 env_path = BASE_DIR / '.env'
 if env_path.exists():
     load_dotenv(env_path)
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+# Configure pymysql as MySQL client if using MySQL
+if os.getenv('DB_ENGINE') == 'django.db.backends.mysql':
+    try:
+        import pymysql
+        pymysql.install_as_MySQLdb()
+    except ImportError:
+        pass
 
 
 # Quick-start development settings - unsuitable for production
