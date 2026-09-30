@@ -1,5 +1,5 @@
 # Core Django
-Django>=6.1,<7.0
+Django>=4.2,<5.0
 
 # Environment Variables
 python-dotenv>=1.0.0
