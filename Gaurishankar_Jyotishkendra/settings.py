@@ -174,10 +174,9 @@ STATICFILES_DIRS =[
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-# For Vercel deployment
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# For Vercel deployment - use simpler Whitenoise configuration
+STATICFILES_STORAGE = 'whitenoise.storage.StaticFilesStorage'
 WHITENOISE_USE_FINDERS = True
-WHITENOISE_STATIC_PREFIX = '/static/'
 
 MEDIA_URL='/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
@@ -195,7 +194,7 @@ MAILERS = {
 WHITENOISE_USE_FINDERS = True
 WHITENOISE_STATIC_PREFIX = '/static/'
 
-# Security settings for production
+# Security settings for production (disabled temporarily for debugging)
 if not DEBUG:
     # Don't force SSL redirect on Vercel (handled by Vercel)
     if not os.getenv('VERCEL'):

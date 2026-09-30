@@ -3,11 +3,7 @@
   "builds": [
     {
       "src": "api/index.py",
-      "use": "@vercel/python",
-      "config": {
-        "command": "python manage.py collectstatic --noinput",
-        "outputDirectory": "staticfiles"
-      }
+      "use": "@vercel/python"
     }
   ],
   "routes": [
