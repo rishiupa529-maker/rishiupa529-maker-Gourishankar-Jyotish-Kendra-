@@ -583,6 +583,16 @@
         transition: opacity 0.8s ease, visibility 0.8s ease;
     }
 
+    #particle-canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 1;
+    }
+
     .loader-wrapper {
         position: relative;
         width: 300px;
@@ -590,7 +600,8 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        z-index: 2;
+        z-index: 10;
+        margin: 0 auto;
     }
 
     .rotating-chakra {
@@ -610,6 +621,8 @@
         text-shadow: 0 0 20px var(--gold-primary), 0 0 40px var(--saffron), 0 0 70px #cc5500;
         animation: pulseOm 2s ease-in-out infinite alternate;
         user-select: none;
+        z-index: 20;
+        line-height: 1;
     }
 
     .om-orbit {
@@ -653,7 +666,7 @@
         font-weight: 700;
         letter-spacing: 3px;
         text-shadow: 0 0 15px rgba(244, 206, 106, 0.6);
-        z-index: 2;
+        z-index: 10;
         text-align: center;
     }
 
@@ -662,7 +675,8 @@
         font-size: 14px;
         letter-spacing: 2px;
         margin-top: 6px;
-        z-index: 2;
+        z-index: 10;
+        text-align: center;
     }
 
     @keyframes rotateChakra {
