@@ -174,11 +174,8 @@ STATICFILES_DIRS =[
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-# For Vercel - use manifest storage for better static file serving
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-WHITENOISE_USE_FINDERS = True
-WHITENOISE_ROOT = BASE_DIR / 'staticfiles'
-WHITENOISE_STATIC_PREFIX = '/static/'
+# Simplified static file serving for Vercel
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 
 MEDIA_URL='/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
@@ -194,7 +191,6 @@ MAILERS = {
 
 # Whitenoise for static files serving
 WHITENOISE_USE_FINDERS = True
-WHITENOISE_ROOT = BASE_DIR / 'staticfiles'
 
 # Security settings for production (disabled temporarily for debugging)
 if not DEBUG:
