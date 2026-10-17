@@ -13,6 +13,17 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Gaurishankar_Jyotishkendra.sett
 import django
 django.setup()
 
+# Collect static files on Vercel deployment
+from django.core.management import call_command
+from django.conf import settings
+
+if os.getenv('VERCEL'):
+    try:
+        call_command('collectstatic', '--noinput', '--clear')
+        print("Static files collected successfully")
+    except Exception as e:
+        print(f"Error collecting static files: {e}")
+
 # Import WSGI application
 from Gaurishankar_Jyotishkendra.wsgi import application
 

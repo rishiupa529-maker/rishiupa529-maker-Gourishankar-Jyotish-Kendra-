@@ -1,0 +1,9 @@
+{
+  "name": "gaurishankar-jyotishkendra",
+  "version": "1.0.0",
+  "description": "Django project for Gaurishankar Jyotishkendra",
+  "scripts": {
+    "build": "python manage.py collectstatic --noinput"
+  },
+  "dependencies": {}
+}
