@@ -174,12 +174,8 @@ STATICFILES_DIRS =[
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-# Simplified static file serving for Vercel
+# WhiteNoise for static files serving
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-# For Vercel, change STATIC_URL to match collected files
-if os.getenv('VERCEL'):
-    STATIC_URL = '/staticfiles/'
 
 MEDIA_URL='/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
@@ -195,6 +191,7 @@ MAILERS = {
 
 # Whitenoise for static files serving
 WHITENOISE_USE_FINDERS = True
+WHITENOISE_ROOT = BASE_DIR / 'static'
 
 # Security settings for production (disabled temporarily for debugging)
 if not DEBUG:
