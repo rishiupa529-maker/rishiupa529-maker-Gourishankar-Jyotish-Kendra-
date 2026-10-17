@@ -47,6 +47,8 @@ if os.getenv('VERCEL'):
     vercel_url = os.getenv('VERCEL_URL')
     if vercel_url and vercel_url not in ALLOWED_HOSTS:
         ALLOWED_HOSTS.append(vercel_url)
+    # Allow all .vercel.app domains
+    ALLOWED_HOSTS.append('.vercel.app')
 
 # CSRF Trusted Origins
 CSRF_TRUSTED_ORIGINS = os.getenv('CSRF_TRUSTED_ORIGINS', '').split(',') if os.getenv('CSRF_TRUSTED_ORIGINS') else []
