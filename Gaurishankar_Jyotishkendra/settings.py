@@ -174,8 +174,11 @@ STATICFILES_DIRS =[
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-# For Vercel - serve static files from both locations
-STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
+# For Vercel - use manifest storage for better static file serving
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+WHITENOISE_USE_FINDERS = True
+WHITENOISE_ROOT = BASE_DIR / 'staticfiles'
+WHITENOISE_STATIC_PREFIX = '/static/'
 
 MEDIA_URL='/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
