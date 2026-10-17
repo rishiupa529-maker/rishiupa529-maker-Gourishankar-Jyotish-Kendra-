@@ -48,7 +48,7 @@
 
             <div class="hero-image-wrapper">
                 <div class="pandit-frame">
-                    <img src="{% static 'image/panditji.png' %}" alt="Pandit Ji" class="pandit-img">
+                    <img src="/static/image/panditji.png" alt="Pandit Ji" class="pandit-img" onerror="this.src='https://via.placeholder.com/360x460/221108/f4ce6a?text=Pandit+Ji'">
                     <div class="exp-ribbon">
                         <i class="fa-solid fa-award"></i> 40+ Years Exp.
                         <i class="fa-solid fa-award"></i>पं आचार्य अविनाश उपाध्याय
@@ -303,30 +303,40 @@
         });
 
         // Theme Toggle (Dark / Light)
-        const themeToggleBtn = document.getElementById('themeToggle');
-        themeToggleBtn.addEventListener('click', () => {
-            document.body.classList.toggle('light-mode');
-            const icon = themeToggleBtn.querySelector('i');
-            if(document.body.classList.contains('light-mode')) {
-                icon.className = 'fa-solid fa-sun';
-            } else {
-                icon.className = 'fa-solid fa-moon';
-            }
-        });
+        const themeToggleBtn = document.querySelector('.theme-toggle');
+        if (themeToggleBtn) {
+            themeToggleBtn.addEventListener('click', () => {
+                document.body.classList.toggle('light-mode');
+                const icon = themeToggleBtn.querySelector('i');
+                if(document.body.classList.contains('light-mode')) {
+                    icon.className = 'fa-solid fa-sun';
+                } else {
+                    icon.className = 'fa-solid fa-moon';
+                }
+            });
+        }
 
         // Mobile Nav Toggle
-        const mobileToggle = document.getElementById('mobileToggle');
-        const navMenu = document.getElementById('navMenu');
-        mobileToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-        });
+        const mobileToggle = document.querySelector('.mobile-menu-btn');
+        const navMenu = document.querySelector('.mobile-nav');
+        if (mobileToggle && navMenu) {
+            mobileToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+            });
+        }
 
         // Modal Controls
         function openModal() {
-            document.getElementById('appointmentModal').style.display = 'flex';
+            const modal = document.getElementById('appointmentModal');
+            if (modal) {
+                modal.style.display = 'flex';
+            }
         }
         function closeModal() {
-            document.getElementById('appointmentModal').style.display = 'none';
+            const modal = document.getElementById('appointmentModal');
+            if (modal) {
+                modal.style.display = 'none';
+            }
         }
 
         // Form Submit Handlers
@@ -342,26 +352,37 @@
 
         function showToast(msg) {
             const toast = document.getElementById('toast');
-            toast.innerText = msg;
-            toast.style.display = 'block';
-            setTimeout(() => { toast.style.display = 'none'; }, 4000);
+            if (toast) {
+                toast.innerText = msg;
+                toast.style.display = 'block';
+                setTimeout(() => { toast.style.display = 'none'; }, 4000);
+            }
         }
 
         // Lightbox Gallery Controls
         function openLightbox(src) {
-            document.getElementById('lightbox-img').src = src;
-            document.getElementById('lightbox').style.display = 'flex';
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            if (lightbox && lightboxImg) {
+                lightboxImg.src = src;
+                lightbox.style.display = 'flex';
+            }
         }
         function closeLightbox() {
-            document.getElementById('lightbox').style.display = 'none';
+            const lightbox = document.getElementById('lightbox');
+            if (lightbox) {
+                lightbox.style.display = 'none';
+            }
         }
 
         // Gallery Filter
         function filterGallery(category) {
             const items = document.querySelectorAll('.gallery-item');
             const btns = document.querySelectorAll('.filter-btn');
-            btns.forEach(b => b.classList.remove('active'));
-            event.target.classList.add('active');
+            if (event && event.target) {
+                btns.forEach(b => b.classList.remove('active'));
+                event.target.classList.add('active');
+            }
 
             items.forEach(item => {
                 if(category === 'all' || item.classList.contains(category)) {
