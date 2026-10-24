@@ -1,0 +1,85 @@
+/* static/css/booking.css */
+
+/* Booking Card Glow & Border */
+.booking-card {
+    background-color: #121212;
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 15px rgba(212, 175, 55, 0.1);
+    transition: all 0.3s ease;
+}
+
+.booking-card:hover {
+    border-color: rgba(212, 175, 55, 0.6);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.8), 0 0 20px rgba(212, 175, 55, 0.2);
+}
+
+/* Form Headings */
+.booking-title {
+    color: #f4ce6a;
+    font-family: 'Georgia', serif;
+    letter-spacing: 0.5px;
+}
+
+/* Input & Select Box Styling */
+.booking-card .form-control,
+.booking-card .form-select {
+    background-color: #1c1c1c !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(212, 175, 55, 0.3) !important;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+/* Input Focus Effects */
+.booking-card .form-control:focus,
+.booking-card .form-select:focus {
+    background-color: #242424 !important;
+    border-color: #f4ce6a !important;
+    box-shadow: 0 0 8px rgba(244, 206, 106, 0.4) !important;
+    color: #ffffff !important;
+    outline: none !important;
+}
+
+/* Placeholder Text Color */
+.booking-card .form-control::placeholder {
+    color: #888888 !important;
+}
+
+/* Select Dropdown Option List Styling */
+.booking-card .form-select option {
+    background-color: #1c1c1c;
+    color: #ffffff;
+}
+
+/* Date & Time Picker Icon Color (Gold tint) */
+.booking-card input[type="date"]::-webkit-calendar-picker-indicator,
+.booking-card input[type="time"]::-webkit-calendar-picker-indicator {
+    filter: invert(0.8) sepia(1) saturate(5) hue-rotate(5deg);
+    cursor: pointer;
+}
+
+/* Submit Button Hover Effects */
+.btn-gold {
+    background-color: #f4ce6a;
+    color: #000000;
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.btn-gold:hover {
+    background-color: #ffd875;
+    color: #000000;
+    box-shadow: 0 0 15px rgba(244, 206, 106, 0.5);
+    transform: translateY(-2px);
+}
+
+.btn-gold:active {
+    transform: translateY(0);
+}

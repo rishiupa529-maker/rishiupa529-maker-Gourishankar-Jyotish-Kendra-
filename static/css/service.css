@@ -1,0 +1,1002 @@
+
+
+/* =====================================================
+   RESET
+===================================================== */
+
+.gk-services-page,
+.gk-services-page * {
+    box-sizing: border-box;
+}
+
+.gk-services-page {
+    margin: 0;
+    padding: 0;
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(212, 175, 55, 0.08),
+            transparent 35%
+        ),
+        var(--gk-srv-bg);
+
+    color: var(--gk-srv-text);
+
+    font-family: "Poppins", sans-serif;
+
+    overflow: hidden;
+}
+
+.gk-services-page h1,
+.gk-services-page h2,
+.gk-services-page h3,
+.gk-services-page p {
+    margin-top: 0;
+}
+
+.gk-services-page section {
+    position: relative;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.gk-service-hero {
+
+    min-height: 460px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 80px 20px;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(18, 9, 4, 0.55),
+            rgba(18, 9, 4, 0.96)
+        );
+
+    border-bottom:
+        1px solid rgba(212, 175, 55, 0.18);
+}
+
+
+.gk-hero-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 850px;
+}
+
+
+.gk-sacred-symbol {
+
+    width: 100px;
+    height: 100px;
+
+    margin: 0 auto 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(212, 175, 55, 0.6);
+
+    border-radius: 50%;
+
+    font-family: "Cinzel", serif;
+
+    font-size: 48px;
+
+    color: var(--gk-srv-gold);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(212, 175, 55, 0.15),
+            rgba(18, 9, 4, 0.8)
+        );
+
+    box-shadow:
+        0 0 45px rgba(212, 175, 55, 0.18);
+
+    animation: gkSrvSymbol 4s ease-in-out infinite;
+}
+
+
+@keyframes gkSrvSymbol {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+
+.gk-mini-line {
+
+    width: 75px;
+    height: 2px;
+
+    margin: 0 auto 18px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--gk-srv-gold),
+            transparent
+        );
+}
+
+
+.gk-hero-small {
+
+    display: block;
+
+    margin-bottom: 12px;
+
+    font-family: "Mukta", sans-serif;
+
+    color: var(--gk-srv-muted);
+
+    font-size: 18px;
+
+    letter-spacing: 2px;
+}
+
+
+.gk-service-hero h1 {
+
+    margin-bottom: 20px;
+
+    font-family: "Cinzel", serif;
+
+    font-size: clamp(42px, 7vw, 78px);
+
+    line-height: 1.15;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+}
+
+
+.gk-service-hero h1 span {
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffe58f,
+            #d4af37,
+            #9a6818
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+}
+
+
+.gk-service-hero p {
+
+    max-width: 680px;
+
+    margin: auto;
+
+    color: var(--gk-srv-muted);
+
+    font-family: "Mukta", sans-serif;
+
+    font-size: 19px;
+
+    line-height: 1.8;
+}
+
+
+/* =====================================================
+   HERO ORBS
+===================================================== */
+
+.gk-hero-orb {
+
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid rgba(212, 175, 55, 0.08);
+
+    pointer-events: none;
+}
+
+
+.gk-orb-left {
+
+    left: -180px;
+    top: 100px;
+
+    box-shadow:
+        0 0 100px rgba(212, 175, 55, 0.06);
+}
+
+
+.gk-orb-right {
+
+    right: -180px;
+    bottom: -80px;
+
+    box-shadow:
+        0 0 100px rgba(212, 175, 55, 0.06);
+}
+
+
+/* =====================================================
+   INTRO
+===================================================== */
+
+.gk-service-intro {
+
+    padding: 100px 20px 70px;
+
+    text-align: center;
+}
+
+
+.gk-intro-container {
+
+    max-width: 850px;
+
+    margin: auto;
+}
+
+
+.gk-section-tag {
+
+    display: inline-block;
+
+    margin-bottom: 20px;
+
+    color: var(--gk-srv-gold);
+
+    font-family: "Mukta", sans-serif;
+
+    font-size: 17px;
+
+    letter-spacing: 1px;
+}
+
+
+.gk-intro-container h2 {
+
+    margin-bottom: 20px;
+
+    font-family: "Cinzel", serif;
+
+    font-size: clamp(30px, 5vw, 48px);
+
+    line-height: 1.35;
+}
+
+
+.gk-intro-container h2 strong {
+
+    color: var(--gk-srv-gold);
+}
+
+
+.gk-intro-container p {
+
+    max-width: 720px;
+
+    margin: auto;
+
+    color: var(--gk-srv-muted);
+
+    font-family: "Mukta", sans-serif;
+
+    font-size: 18px;
+
+    line-height: 1.9;
+}
+
+
+/* =====================================================
+   SERVICES LIST
+===================================================== */
+
+.gk-service-list {
+
+    padding: 40px 20px 110px;
+}
+
+
+.gk-service-wrapper {
+
+    width: min(1150px, 100%);
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 28px;
+}
+
+
+/* =====================================================
+   SERVICE BOX
+===================================================== */
+
+.gk-service-box {
+
+    position: relative;
+
+    min-height: 390px;
+
+    padding: 48px 40px;
+
+    overflow: hidden;
+
+    border:
+        1px solid var(--gk-srv-border);
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(48, 23, 10, 0.95),
+            rgba(28, 12, 5, 0.98)
+        );
+
+    box-shadow: var(--gk-srv-shadow);
+
+    transition:
+        transform 0.4s ease,
+        border-color 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+
+.gk-service-box::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    right: -90px;
+    top: -90px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(212, 175, 55, 0.15),
+            transparent 70%
+        );
+
+    transition: 0.5s ease;
+}
+
+
+.gk-service-box:hover {
+
+    transform: translateY(-10px);
+
+    border-color:
+        rgba(244, 206, 106, 0.65);
+
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.5),
+        0 0 30px rgba(212, 175, 55, 0.09);
+}
+
+
+.gk-service-box:hover::before {
+
+    transform: scale(1.6);
+}
+
+
+/* =====================================================
+   SERVICE NUMBER
+===================================================== */
+
+.gk-service-number {
+
+    position: absolute;
+
+    top: 25px;
+    right: 30px;
+
+    font-family: "Cinzel", serif;
+
+    font-size: 17px;
+
+    color:
+        rgba(244, 206, 106, 0.45);
+
+    letter-spacing: 2px;
+}
+
+
+/* =====================================================
+   SERVICE ICON
+===================================================== */
+
+.gk-service-icon {
+
+    width: 72px;
+    height: 72px;
+
+    margin-bottom: 28px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 18px;
+
+    border:
+        1px solid rgba(212, 175, 55, 0.45);
+
+    background:
+        rgba(212, 175, 55, 0.08);
+
+    color: var(--gk-srv-gold);
+
+    font-size: 27px;
+
+    transition:
+        transform 0.4s ease,
+        background 0.4s ease;
+}
+
+
+.gk-service-box:hover .gk-service-icon {
+
+    transform: rotate(5deg) scale(1.08);
+
+    background:
+        rgba(212, 175, 55, 0.15);
+}
+
+
+/* =====================================================
+   SERVICE CONTENT
+===================================================== */
+
+.gk-service-content {
+
+    position: relative;
+    z-index: 2;
+}
+
+
+.gk-service-label {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    color:
+        rgba(244, 206, 106, 0.65);
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    font-weight: 600;
+}
+
+
+.gk-service-content h3 {
+
+    margin-bottom: 15px;
+
+    font-family: "Mukta", sans-serif;
+
+    font-size: 31px;
+
+    color: var(--gk-srv-text);
+}
+
+
+.gk-service-content p {
+
+    margin-bottom: 22px;
+
+    color: var(--gk-srv-muted);
+
+    font-family: "Mukta", sans-serif;
+
+    font-size: 17px;
+
+    line-height: 1.8;
+}
+
+
+/* =====================================================
+   SERVICE POINTS
+===================================================== */
+
+.gk-service-points {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+}
+
+
+.gk-service-points span {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 8px 12px;
+
+    border-radius: 30px;
+
+    background:
+        rgba(212, 175, 55, 0.07);
+
+    border:
+        1px solid rgba(212, 175, 55, 0.14);
+
+    color:
+        rgba(255, 253, 245, 0.82);
+
+    font-family: "Mukta", sans-serif;
+
+    font-size: 14px;
+}
+
+
+.gk-service-points i {
+
+    color: var(--gk-srv-gold);
+
+    font-size: 11px;
+}
+
+
+/* =====================================================
+   ONLINE SERVICES
+===================================================== */
+
+.gk-online-section {
+
+    padding: 110px 20px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #120904,
+            #1b0c05,
+            #120904
+        );
+}
+
+
+.gk-online-container {
+
+    width: min(1150px, 100%);
+
+    margin: auto;
+}
+
+
+.gk-online-heading {
+
+    text-align: center;
+
+    margin-bottom: 55px;
+}
+
+
+.gk-online-heading > span {
+
+    color: var(--gk-srv-gold);
+
+    font-size: 13px;
+
+    letter-spacing: 3px;
+}
+
+
+.gk-online-heading h2 {
+
+    margin: 14px 0;
+
+    font-family: "Cinzel", serif;
+
+    font-size: clamp(30px, 5vw, 46px);
+}
+
+
+.gk-online-heading h2 strong {
+
+    color: var(--gk-srv-gold);
+}
+
+
+.gk-online-heading p {
+
+    margin: 0;
+
+    color: var(--gk-srv-muted);
+
+    font-family: "Mukta", sans-serif;
+
+    font-size: 17px;
+}
+
+
+/* =====================================================
+   ONLINE GRID
+===================================================== */
+
+.gk-online-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+
+/* =====================================================
+   ONLINE CARD
+===================================================== */
+
+.gk-online-card {
+
+    padding: 35px 25px;
+
+    text-align: center;
+
+    border-radius: 17px;
+
+    border:
+        1px solid rgba(212, 175, 55, 0.25);
+
+    background:
+        rgba(38, 19, 9, 0.72);
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease;
+}
+
+
+.gk-online-card:hover {
+
+    transform: translateY(-8px);
+
+    border-color:
+        rgba(244, 206, 106, 0.65);
+}
+
+
+.gk-online-icon {
+
+    width: 60px;
+    height: 60px;
+
+    margin: 0 auto 18px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    color: var(--gk-srv-gold);
+
+    background:
+        rgba(212, 175, 55, 0.08);
+
+    border:
+        1px solid rgba(212, 175, 55, 0.3);
+
+    font-size: 21px;
+}
+
+
+.gk-online-card h3 {
+
+    margin-bottom: 8px;
+
+    font-family: "Mukta", sans-serif;
+
+    font-size: 22px;
+}
+
+
+.gk-online-card p {
+
+    margin: 0;
+
+    color: var(--gk-srv-muted);
+
+    font-family: "Mukta", sans-serif;
+
+    font-size: 15px;
+
+    line-height: 1.6;
+}
+
+
+/* =====================================================
+   TRUST SECTION
+===================================================== */
+
+.gk-service-trust {
+
+    padding: 120px 20px;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(212, 175, 55, 0.08),
+            transparent 45%
+        );
+}
+
+
+.gk-trust-symbol {
+
+    font-family: "Cinzel", serif;
+
+    font-size: 55px;
+
+    color: var(--gk-srv-gold);
+
+    margin-bottom: 20px;
+}
+
+
+.gk-trust-line {
+
+    width: 90px;
+    height: 1px;
+
+    margin: 0 auto 30px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--gk-srv-gold),
+            transparent
+        );
+}
+
+
+.gk-service-trust h2 {
+
+    margin-bottom: 12px;
+
+    font-family: "Cinzel", serif;
+
+    font-size: clamp(30px, 5vw, 48px);
+}
+
+
+.gk-service-trust h2 span {
+
+    color: var(--gk-srv-gold);
+}
+
+
+.gk-service-trust p {
+
+    margin-bottom: 8px;
+
+    color: var(--gk-srv-muted);
+
+    font-family: "Mukta", sans-serif;
+
+    font-size: 20px;
+}
+
+
+.gk-service-trust small {
+
+    color:
+        rgba(220, 196, 166, 0.6);
+
+    font-family: "Mukta", sans-serif;
+
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .gk-service-wrapper {
+
+        grid-template-columns: 1fr;
+    }
+
+    .gk-online-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .gk-service-hero {
+
+        min-height: 400px;
+
+        padding:
+            70px 18px;
+    }
+
+
+    .gk-sacred-symbol {
+
+        width: 80px;
+        height: 80px;
+
+        font-size: 38px;
+    }
+
+
+    .gk-hero-small {
+
+        font-size: 15px;
+    }
+
+
+    .gk-service-hero p {
+
+        font-size: 16px;
+    }
+
+
+    .gk-service-intro {
+
+        padding:
+            75px 18px 45px;
+    }
+
+
+    .gk-intro-container h2 {
+
+        font-size: 29px;
+    }
+
+
+    .gk-intro-container p {
+
+        font-size: 16px;
+    }
+
+
+    .gk-service-list {
+
+        padding:
+            30px 15px 80px;
+    }
+
+
+    .gk-service-box {
+
+        min-height: auto;
+
+        padding:
+            35px 25px;
+    }
+
+
+    .gk-service-content h3 {
+
+        font-size: 27px;
+    }
+
+
+    .gk-service-content p {
+
+        font-size: 16px;
+    }
+
+
+    .gk-service-points {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+
+    .gk-online-section {
+
+        padding:
+            80px 15px;
+    }
+
+
+    .gk-online-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .gk-service-trust {
+
+        padding:
+            90px 18px;
+    }
+
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 380px) {
+
+    .gk-service-hero h1 {
+
+        font-size: 38px;
+    }
+
+
+    .gk-service-box {
+
+        padding:
+            30px 20px;
+    }
+
+
+    .gk-service-number {
+
+        right: 20px;
+    }
+
+}
