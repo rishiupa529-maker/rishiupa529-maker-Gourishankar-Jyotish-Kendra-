@@ -186,7 +186,7 @@ STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # WhiteNoise for static files serving
-STATICFILES_STORAGE = 'whitenoise.storage.ManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.StaticFilesStorage'
 
 MEDIA_URL='/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
@@ -203,6 +203,7 @@ MAILERS = {
 # Whitenoise for static files serving
 WHITENOISE_USE_FINDERS = True
 WHITENOISE_ROOT = BASE_DIR / 'static'
+WHITENOISE_AUTOREFRESH = False
 
 # Security settings for production (disabled temporarily for debugging)
 if not DEBUG:
