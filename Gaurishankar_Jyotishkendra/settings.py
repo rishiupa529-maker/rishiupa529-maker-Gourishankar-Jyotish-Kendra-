@@ -185,8 +185,8 @@ STATICFILES_DIRS =[
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-# WhiteNoise for static files serving
-STATICFILES_STORAGE = 'whitenoise.storage.StaticFilesStorage'
+# WhiteNoise for static files serving - use basic storage to avoid compression
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 
 MEDIA_URL='/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
@@ -205,6 +205,7 @@ WHITENOISE_USE_FINDERS = True
 WHITENOISE_ROOT = BASE_DIR / 'static'
 WHITENOISE_AUTOREFRESH = False
 WHITENOISE_STATIC_PREFIX = '/static/'
+WHITENOISE_MANIFEST_STRICT = False
 
 # Security settings for production (disabled temporarily for debugging)
 if not DEBUG:
