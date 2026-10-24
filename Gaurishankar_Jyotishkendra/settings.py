@@ -109,7 +109,7 @@ WSGI_APPLICATION = 'Gaurishankar_Jyotishkendra.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.1/ref/settings/#databases
 
-# Use MySQL for production, SQLite for development
+# Use MySQL for production if credentials are provided
 if os.getenv('DB_ENGINE'):
     DATABASES = {
         'default': {
@@ -126,13 +126,22 @@ if os.getenv('DB_ENGINE'):
         }
     }
 else:
-    # For Vercel serverless, use a more robust SQLite setup
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
+    # For Vercel serverless, use in-memory SQLite (read-only filesystem)
+    if os.getenv('VERCEL'):
+        DATABASES = {
+            'default': {
+                'ENGINE': 'django.db.backends.sqlite3',
+                'NAME': ':memory:',
+            }
         }
-    }
+    else:
+        # Local development - use file-based SQLite
+        DATABASES = {
+            'default': {
+                'ENGINE': 'django.db.backends.sqlite3',
+                'NAME': BASE_DIR / 'db.sqlite3',
+            }
+        }
 
 
 # Password validation

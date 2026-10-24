@@ -13,6 +13,16 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Gaurishankar_Jyotishkendra.sett
 import django
 django.setup()
 
+# Run migrations on Vercel for in-memory database
+if os.getenv('VERCEL'):
+    from django.core.management import call_command
+    try:
+        # Run migrations silently
+        call_command('migrate', '--run-syncdb', verbosity=0)
+        print("Migrations completed successfully")
+    except Exception as e:
+        print(f"Migration error (non-critical): {e}")
+
 # Import WSGI application
 from Gaurishankar_Jyotishkendra.wsgi import application
 
