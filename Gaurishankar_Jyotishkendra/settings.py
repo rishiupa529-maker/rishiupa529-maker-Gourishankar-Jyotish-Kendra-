@@ -204,6 +204,7 @@ MAILERS = {
 WHITENOISE_USE_FINDERS = True
 WHITENOISE_ROOT = BASE_DIR / 'static'
 WHITENOISE_AUTOREFRESH = False
+WHITENOISE_STATIC_PREFIX = '/static/'
 
 # Security settings for production (disabled temporarily for debugging)
 if not DEBUG:
