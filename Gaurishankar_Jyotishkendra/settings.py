@@ -126,22 +126,13 @@ if os.getenv('DB_ENGINE'):
         }
     }
 else:
-    # For Vercel serverless, use in-memory SQLite (read-only filesystem)
-    if os.getenv('VERCEL'):
-        DATABASES = {
-            'default': {
-                'ENGINE': 'django.db.backends.sqlite3',
-                'NAME': ':memory:',
-            }
+    # Use in-memory SQLite for both Vercel and local development
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': ':memory:',
         }
-    else:
-        # Local development - use file-based SQLite
-        DATABASES = {
-            'default': {
-                'ENGINE': 'django.db.backends.sqlite3',
-                'NAME': BASE_DIR / 'db.sqlite3',
-            }
-        }
+    }
 
 
 # Password validation
@@ -203,9 +194,6 @@ MAILERS = {
 # Whitenoise for static files serving
 WHITENOISE_USE_FINDERS = True
 WHITENOISE_ROOT = BASE_DIR / 'static'
-WHITENOISE_AUTOREFRESH = False
-WHITENOISE_STATIC_PREFIX = '/static/'
-WHITENOISE_MANIFEST_STRICT = False
 
 # Security settings for production (disabled temporarily for debugging)
 if not DEBUG:
