@@ -186,11 +186,7 @@ STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # WhiteNoise for static files serving
-# Use basic storage on Vercel to avoid compression issues on read-only filesystem
-if os.getenv('VERCEL'):
-    STATICFILES_STORAGE = 'whitenoise.storage.StaticFilesStorage'
-else:
-    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.StaticFilesStorage'
 
 MEDIA_URL='/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
@@ -206,9 +202,7 @@ MAILERS = {
 
 # Whitenoise for static files serving
 WHITENOISE_USE_FINDERS = True
-# Don't set WHITENOISE_ROOT on Vercel, let finders handle it
-if not os.getenv('VERCEL'):
-    WHITENOISE_ROOT = BASE_DIR / 'static'
+WHITENOISE_ROOT = BASE_DIR / 'static'
 
 # Security settings for production (disabled temporarily for debugging)
 if not DEBUG:
