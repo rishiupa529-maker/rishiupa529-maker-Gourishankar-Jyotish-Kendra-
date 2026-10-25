@@ -40,7 +40,7 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-np094&g(4q^mpqw21+mk+a778!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', 'True').lower() == 'True'
 
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '').split(',') if os.getenv('ALLOWED_HOSTS') else []
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '').split(',') if os.getenv('ALLOWED_HOSTS') else ['*']
 
 # Add Vercel domain if deployed on Vercel
 if os.getenv('VERCEL'):
@@ -190,6 +190,7 @@ MAILERS = {
 
 # Whitenoise for static files serving
 WHITENOISE_USE_FINDERS = True
+WHITENOISE_AUTOREFRESH = False
 
 # Security settings for production (disabled temporarily for debugging)
 if not DEBUG:
