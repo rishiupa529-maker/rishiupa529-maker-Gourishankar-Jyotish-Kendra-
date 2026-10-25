@@ -11,10 +11,29 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Gaurishankar_Jyotishkendra.sett
 
 # Import Django and initialize
 import django
-django.setup()
+try:
+    django.setup()
+except Exception as e:
+    print(f"Django setup failed: {e}")
+    import traceback
+    traceback.print_exc()
 
 # Import WSGI application
-from Gaurishankar_Jyotishkendra.wsgi import application
-
-# Vercel requires this export
-app = application
+try:
+    from Gaurishankar_Jyotishkendra.wsgi import application
+    app = application
+except Exception as e:
+    print(f"Failed to import WSGI application: {e}")
+    import traceback
+    traceback.print_exc()
+    # Fallback simple WSGI app
+    def simple_app(environ, start_response):
+        status = '200 OK'
+        response_body = b'Django failed to load. Check logs.'
+        response_headers = [
+            ('Content-Type', 'text/plain'),
+            ('Content-Length', str(len(response_body)))
+        ]
+        start_response(status, response_headers)
+        return [response_body]
+    app = simple_app
