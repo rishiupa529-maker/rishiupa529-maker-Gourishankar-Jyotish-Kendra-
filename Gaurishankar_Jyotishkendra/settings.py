@@ -176,9 +176,6 @@ STATICFILES_DIRS =[
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-# WhiteNoise for static files serving - use basic storage to avoid compression
-STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
-
 MEDIA_URL='/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 
@@ -193,7 +190,6 @@ MAILERS = {
 
 # Whitenoise for static files serving
 WHITENOISE_USE_FINDERS = True
-WHITENOISE_ROOT = BASE_DIR / 'static'
 
 # Security settings for production (disabled temporarily for debugging)
 if not DEBUG:
