@@ -38,7 +38,7 @@ if os.getenv('DB_ENGINE') == 'django.db.backends.mysql':
 SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-np094&g(4q^mpqw21+mk+a778!yy!#ec^7*$$17p0vjfwo7vsi')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv('DEBUG', 'True').lower() == 'True'
+DEBUG = True
 
 ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '').split(',') if os.getenv('ALLOWED_HOSTS') else ['*']
 
