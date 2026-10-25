@@ -35,55 +35,13 @@ def blog_list(request):
     """
     Show all published blogs
     """
-    try:
-        blogs = Blog.objects.filter(
-            status='published'
-        ).select_related(
-            'author',
-            'category'
-        )
-
-        categories = Category.objects.all()
-
-        # Search
-        search = request.GET.get('search')
-
-        if search:
-            blogs = blogs.filter(
-                Q(title__icontains=search) |
-                Q(short_description__icontains=search) |
-                Q(content__icontains=search)
-            )
-
-        # Category filter
-        category_slug = request.GET.get('category')
-
-        if category_slug:
-            blogs = blogs.filter(
-                category__slug=category_slug
-            )
-
-        # Featured blogs
-        featured_blogs = Blog.objects.filter(
-            status='published',
-            is_featured=True
-        ).select_related(
-            'author',
-            'category'
-        )[:5]
-
-        context = {
-            'blogs': blogs,
-            'categories': categories,
-            'featured_blogs': featured_blogs,
-        }
-    except Exception as e:
-        # Fallback if database connection fails
-        context = {
-            'blogs': [],
-            'categories': [],
-            'featured_blogs': [],
-        }
+    # For now, return empty data to avoid database connection issues
+    # TODO: Re-enable database queries once MySQL connection is stable
+    context = {
+        'blogs': [],
+        'categories': [],
+        'featured_blogs': [],
+    }
 
     return render(
         request,
@@ -96,38 +54,12 @@ def blog_detail(request, slug):
     """
     Show single blog
     """
-    try:
-        blog = get_object_or_404(
-            Blog.objects.select_related(
-                'author',
-                'category'
-            ),
-            slug=slug,
-            status='published'
-        )
-
-        # Increase views
-        blog.views += 1
-        blog.save(update_fields=['views'])
-
-        # Related blogs
-        related_blogs = Blog.objects.filter(
-            status='published',
-            category=blog.category
-        ).exclude(
-            id=blog.id
-        ).select_related(
-            'author',
-            'category'
-        )[:4]
-
-        context = {
-            'blog': blog,
-            'related_blogs': related_blogs,
-        }
-    except Exception as e:
-        # Fallback if database connection fails
-        return render(request, 'blog_detail.html', {'blog': None, 'related_blogs': []})
+    # For now, return empty data to avoid database connection issues
+    # TODO: Re-enable database queries once MySQL connection is stable
+    context = {
+        'blog': None,
+        'related_blogs': [],
+    }
 
     return render(
         request,

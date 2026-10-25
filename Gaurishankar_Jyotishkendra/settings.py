@@ -84,6 +84,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'Gaurishankar_Jyotishkendra.middleware.DatabaseErrorMiddleware',
 ]
 
 ROOT_URLCONF = 'Gaurishankar_Jyotishkendra.urls'
@@ -119,9 +120,11 @@ if os.getenv('DB_ENGINE'):
             'PASSWORD': os.getenv('DB_PASSWORD'),
             'HOST': os.getenv('DB_HOST'),
             'PORT': os.getenv('DB_PORT'),
+            'CONN_MAX_AGE': 60,  # Connection pooling - reuse connections for 60 seconds
             'OPTIONS': {
                 'ssl': {'ca': ''},  # Required for Aiven MySQL
-                'connect_timeout': 10,
+                'connect_timeout': 5,  # Reduced timeout for faster failure
+                'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
             },
         }
     }
