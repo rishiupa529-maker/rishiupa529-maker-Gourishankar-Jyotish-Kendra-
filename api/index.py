@@ -13,6 +13,13 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Gaurishankar_Jyotishkendra.sett
 import django
 django.setup()
 
+# Run migrations for in-memory database
+from django.core.management import call_command
+try:
+    call_command('migrate', '--run-syncdb', verbosity=0)
+except Exception as e:
+    pass  # Ignore migration errors
+
 # Import WSGI application
 from Gaurishankar_Jyotishkendra.wsgi import application
 
