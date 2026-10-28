@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.urls import path
 from Gaurishankar_Jyotishkendra import views
+from booking.views import booking_view
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -39,6 +40,6 @@ urlpatterns = [
         name='featured_blogs'
     ),
 
-    path('booking/', views.booking_view, name='booking'),
+    path('booking/', booking_view, name='booking'),
 
 ]
