@@ -18,3 +18,14 @@ from Gaurishankar_Jyotishkendra.wsgi import application
 
 # Vercel requires this export
 app = application
+
+# Collect static files for Vercel
+from django.core.management import call_command
+from django.conf import settings
+
+if not os.path.exists(settings.STATIC_ROOT):
+    os.makedirs(settings.STATIC_ROOT, exist_ok=True)
+    try:
+        call_command('collectstatic', '--noinput', verbosity=0)
+    except Exception as e:
+        print(f"Collectstatic warning: {e}")
